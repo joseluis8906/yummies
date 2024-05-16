@@ -1,0 +1,140 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./output.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="dark:bg-gray-900 w-screen h-screen overflow-clip">
+      <div class="container mx-auto h-screen">
+        <div class="max-w-[430px] w-full h-full relative mx-auto bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 ">
+          <!--top bar-->
+          <div class="w-full p-2 pb-0 bg-white border-t border-gray-200 dark:bg-gray-700 dark:border-gray-600 shadow-md shadow-gray-900">
+            <div class="w-full h-12 flex justify-between">
+              <div class="content-center">
+                <button type="button" class="p-2 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-full group">
+                  <svg class="w-6 h-6 text-gray-500 dark:text-gray-400 group-hover:text-orange-600 dark:group-hover:text-orange-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12l4-4m-4 4 4 4"/>
+                  </svg>
+                </button>
+              </div>
+              <h5 class="text-white content-center font-semibold">Your Order</h5>
+              <div class="content-center">
+                <button type="button" class="p-2 hover:bg-gray-50 dark:hover:bg-gray-900 rounded-full group">
+                  <svg class="w-6 h-6 text-gray-500 dark:text-gray-400 group-hover:text-orange-600 dark:group-hover:text-orange-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.529 9.988a2.502 2.502 0 1 1 5 .191A2.441 2.441 0 0 1 12 12.582V14m-.01 3.008H12M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!--content-->
+          <div class="w-full h-full px-4 pt-3 pb-64 overflow-clip overflow-y-scroll no-scrollbar ">
+            <!--item grid-->
+            <div class="grid grid-cols-1 gap-5">
+              <!--item-->
+              <div class="relative w-full h-24 bg-gray-600 shadow-md shadow-gray-900 rounded-md flex p-2">
+                <button type="button" class="absolute top-1 right-1 bg-gray-700 hover:bg-red-800 rounded-full">
+                  <svg class="w-5 h-5 text-gray-200 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m15 9-6 6m0-6 6 6m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+                  </svg>
+                </button>
+                <img src="images/bulgur-salad.jpg" class="object-cover rounded-md" />
+                <div class="grow flex pl-2">
+                  <span class="text-white font-semibold content-center grow">Bulgur Salad</span>
+                  <div class="max-w-xs ml-3 content-center">
+                    <div class="relative flex items-center rounded-full p-1 dark:bg-orange-600">
+                      <button type="button" class="flex-shrink-0 inline-flex items-center justify-center h-5 w-5 focus:outline-none dark:text-white">
+                        <svg class="w-2.5 h-2.5 text-gray-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
+                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h16"/>
+                        </svg>
+                      </button>
+                      <input type="text" class="flex-shrink-0 text-gray-900 dark:text-white border-0 bg-transparent text-sm font-normal focus:outline-none focus:ring-0 max-w-5 text-center" placeholder="" value="1" required />
+                      <button type="button" data-input-counter-increment="counter-input" class="flex-shrink-0 inline-flex items-center justify-center h-5 w-5 focus:outline-none dark:text-white">
+                        <svg class="w-2.5 h-2.5 text-gray-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                  <span class="text-white font-semibold content-center pl-4">$5.25</span>
+                </div>
+              </div>
+              <!--item-->
+              <div class="relative w-full h-24 bg-gray-600 shadow-md shadow-gray-900 rounded-md flex p-2">
+                <button type="button" class="absolute top-1 right-1 bg-gray-700 hover:bg-red-800 rounded-full">
+                  <svg class="w-5 h-5 text-gray-200 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m15 9-6 6m0-6 6 6m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+                  </svg>
+                </button>
+                <img src="images/spicy-noodles.jpg" class="object-cover rounded-md" />
+                <div class="grow flex pl-2">
+                  <span class="text-white font-semibold content-center grow">Spicy Noodles</span>
+                  <div class="max-w-xs ml-3 content-center">
+                    <div class="relative flex items-center rounded-full p-1 dark:bg-orange-600">
+                      <button type="button" class="flex-shrink-0 inline-flex items-center justify-center h-5 w-5 focus:outline-none dark:text-white">
+                        <svg class="w-2.5 h-2.5 text-gray-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
+                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h16"/>
+                        </svg>
+                      </button>
+                      <input type="text" class="flex-shrink-0 text-gray-900 dark:text-white border-0 bg-transparent text-sm font-normal focus:outline-none focus:ring-0 max-w-5 text-center" placeholder="" value="1" required />
+                      <button type="button" data-input-counter-increment="counter-input" class="flex-shrink-0 inline-flex items-center justify-center h-5 w-5 focus:outline-none dark:text-white">
+                        <svg class="w-2.5 h-2.5 text-gray-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                  <span class="text-white font-semibold content-center pl-4">$5.70</span>
+                </div>
+              </div>
+              <!--item-->
+              <div class="relative w-full h-24 bg-gray-600 shadow-md shadow-gray-900 rounded-md flex p-2">
+                <button type="button" class="absolute top-1 right-1 bg-gray-700 hover:bg-red-800 rounded-full">
+                  <svg class="w-5 h-5 text-gray-200 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m15 9-6 6m0-6 6 6m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+                  </svg>
+                </button>
+                <img src="images/beef-salad.jpg" class="object-cover rounded-md" />
+                <div class="grow flex pl-2">
+                  <span class="text-white font-semibold content-center grow">Beef Salad</span>
+                  <div class="max-w-xs ml-3 content-center">
+                    <div class="relative flex items-center rounded-full p-1 dark:bg-orange-600">
+                      <button type="button" class="flex-shrink-0 inline-flex items-center justify-center h-5 w-5 focus:outline-none dark:text-white">
+                        <svg class="w-2.5 h-2.5 text-gray-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
+                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h16"/>
+                        </svg>
+                      </button>
+                      <input type="text" class="flex-shrink-0 text-gray-900 dark:text-white border-0 bg-transparent text-sm font-normal focus:outline-none focus:ring-0 max-w-5 text-center" placeholder="" value="1" required />
+                      <button type="button" data-input-counter-increment="counter-input" class="flex-shrink-0 inline-flex items-center justify-center h-5 w-5 focus:outline-none dark:text-white">
+                        <svg class="w-2.5 h-2.5 text-gray-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                  <span class="text-white font-semibold content-center pl-4">$4.25</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--bottom sheet-->
+          <div class="absolute bottom-0 left-0 w-full h-48 dark:bg-gray-600 rounded-t-2xl px-4 py-2">
+            <div class="flex">
+              <h2 class="grow content-center dark:text-white text-xl font-semibold">Total price</h2>
+              <h1 class="content-center dark:text-white text-2xl font-bold"">$35.70</h1>
+            </div>
+            <div class="w-full text-right">
+              <span class="text-white text-xs">(Delivery fee not included)</span>
+            </div>
+            <div class="content-center mt-3 grid grid-cols-1 gap-3 text-center px-10">
+              <button type="button" class="border-orange-500 border-2 dark:text-orange-500 font-semibold px-16 py-2 rounded-2xl">Add Items</button>
+              <button type="button" class="bg-orange-600 dark:text-white font-semibold px-16 py-2 rounded-2xl">Checkout</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

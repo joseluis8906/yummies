@@ -1,0 +1,182 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./output.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="dark:bg-gray-900 w-screen h-screen overflow-clip">
+      <div class="container mx-auto h-screen">
+        <div class="max-w-[430px] w-full h-full relative mx-auto bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 ">
+          <!--top bar-->
+          <div class="w-full p-2 pb-0 bg-white border-t border-gray-200 dark:bg-gray-700 dark:border-gray-600 shadow-md shadow-gray-900">
+            <div class="w-full h-12 flex justify-between">
+              <div class="content-center">
+                <button type="button" class="p-2 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-full group">
+                  <svg class="w-6 h-6 text-gray-500 dark:text-gray-400 group-hover:text-orange-600 dark:group-hover:text-orange-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12l4-4m-4 4 4 4"/>
+                  </svg>
+                </button>
+              </div>
+              <h5 class="text-white content-center font-semibold">Menu</h5>
+              <div class="content-center relative">
+                <button type="button" class="p-2 hover:bg-gray-50 dark:hover:bg-gray-900 rounded-full group">
+                  <svg class="w-6 h-6 text-gray-500 dark:text-gray-400 group-hover:text-orange-600 dark:group-hover:text-orange-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                    <path fill-rule="evenodd" d="M4 4a1 1 0 0 1 1-1h1.5a1 1 0 0 1 .979.796L7.939 6H19a1 1 0 0 1 .979 1.204l-1.25 6a1 1 0 0 1-.979.796H9.605l.208 1H17a3 3 0 1 1-2.83 2h-2.34a3 3 0 1 1-4.009-1.76L5.686 5H5a1 1 0 0 1-1-1Z" clip-rule="evenodd"/>
+                  </svg>
+                </button>
+                <div class="absolute inline-flex items-center justify-center w-4 h-4 text-[0.55rem] font-bold text-white bg-red-600 border-1 border-white rounded-full top-0 right-1 dark:border-gray-900">5</div>
+              </div>
+            </div>
+            <!--categories-->
+            <div class="w-full overflow-clip mt-3 ">
+              <div class="flex flex-nowrap px-4 gap-2 mx-auto overflow-x-auto no-scrollbar border-b-2 border-gray-700" role="group">
+                <button type="button" class="px-5 py-1.5 text-xs font-medium text-gray-200 dark:text-white hover:text-orange-500 dark:bg-gray-700 dark:hover:bg-gray-700 border-b-4 dark:border-gray-700 dark:hover:border-orange-600 text-nowrap">
+                  Meals
+                </button>
+                <button type="button" class="px-5 py-1.5 text-xs font-medium text-gray-200 dark:text-white hover:text-orange-500 dark:bg-gray-700 dark:hover:bg-gray-700 border-b-4 dark:border-gray-700 dark:hover:border-orange-600 text-nowrap">
+                  Sides
+                </button>
+                <button type="button" class="px-5 py-1.5 text-xs font-medium text-gray-200 dark:text-white hover:text-orange-500 dark:bg-gray-700 dark:hover:bg-gray-700 border-b-4 dark:border-gray-700 dark:hover:border-orange-600 text-nowrap">
+                  Snacks 
+                </button>
+                <button type="button" class="px-5 py-1.5 text-xs font-medium text-gray-200 dark:text-white hover:text-orange-500 dark:bg-gray-700 dark:hover:bg-gray-700 border-b-4 dark:border-gray-700 dark:hover:border-orange-600 text-nowrap">
+                  Drinks
+                </button>
+                <button type="button" class="px-5 py-1.5 text-xs font-medium text-gray-200 dark:text-white hover:text-orange-500 dark:bg-gray-700 dark:hover:bg-gray-700 border-b-4 dark:border-gray-700 dark:hover:border-orange-600 text-nowrap">
+                  Healthy 
+                </button>
+                <button type="button" class="px-5 py-1.5 text-xs font-medium text-gray-200 dark:text-white hover:text-orange-500 dark:bg-gray-700 dark:hover:bg-gray-700 border-b-4 dark:border-gray-700 dark:hover:border-orange-600 text-nowrap">
+                  Fast Food
+                </button>
+              </div>
+            </div>
+          </div>
+          <!--content-->
+          <div class="overflow-y-auto h-full pb-48 pt-4 px-4 no-scrollbar">
+            <!--items-->
+            <div class="w-full grid grid-cols-2 gap-4">
+              <div class="relative min-w-32 min-h-32 p-3 dark:bg-gray-700 rounded-lg text-center content-center shadow-md shadow-gray-900">
+                <button type="button" class="absolute top-1 right-1">
+                  <svg class="w-6 h-6 text-orange-600 dark:text-orange-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="m12.75 20.66 6.184-7.098c2.677-2.884 2.559-6.506.754-8.705-.898-1.095-2.206-1.816-3.72-1.855-1.293-.034-2.652.43-3.963 1.442-1.315-1.012-2.678-1.476-3.973-1.442-1.515.04-2.825.76-3.724 1.855-1.806 2.201-1.915 5.823.772 8.706l6.183 7.097c.19.216.46.34.743.34a.985.985 0 0 0 .743-.34Z"/>
+                  </svg>
+                </button>
+                <img src="images/beef-salad.jpg" class="object-cover size-32 rounded-full mx-auto"/>
+                <h5 class="dark:text-white font-medium mt-1">Beef Salad</h5>
+                <h3 class="dark:text-white text-lg font-bold">$4.25</h3>
+              </div>
+              <div class="relative min-w-32 min-h-32 p-3 dark:bg-gray-700 rounded-lg text-center content-center shadow-md shadow-gray-900">
+                <button type="button" class="absolute top-1 right-1">
+                  <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12.01 6.001C6.5 1 1 8 5.782 13.001L12.011 20l6.23-7C23 8 17.5 1 12.01 6.002Z"/>
+                  </svg>
+                </button>
+                <img src="images/spicy-noodles.jpg" class="object-cover size-32 rounded-full mx-auto"/>
+                <h5 class="dark:text-white font-medium mt-1">Spicy Noodles</h5>
+                <h3 class="dark:text-white text-lg font-bold">$5.70</h3>
+              </div>
+              <div class="relative min-w-32 min-h-32 p-3 dark:bg-gray-700 rounded-lg text-center content-center shadow-md shadow-gray-900">
+                <button type="button" class="absolute top-1 right-1">
+                  <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12.01 6.001C6.5 1 1 8 5.782 13.001L12.011 20l6.23-7C23 8 17.5 1 12.01 6.002Z"/>
+                  </svg>
+                </button>
+                <img src="images/lasagna.jpg" class="object-cover size-32 rounded-full mx-auto"/>
+                <h5 class="dark:text-white font-medium mt-1">Lasagna</h5>
+                <h3 class="dark:text-white text-lg font-bold">$6.30</h3>
+              </div>
+              <div class="relative min-w-32 min-h-32 p-3 dark:bg-gray-700 rounded-lg text-center content-center shadow-md shadow-gray-900">
+                <button type="button" class="absolute top-1 right-1">
+                  <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12.01 6.001C6.5 1 1 8 5.782 13.001L12.011 20l6.23-7C23 8 17.5 1 12.01 6.002Z"/>
+                  </svg>
+                </button>
+                <img src="images/shrimp-pasta.jpg" class="object-cover size-32 rounded-full mx-auto"/>
+                <h5 class="dark:text-white font-medium mt-1">Shrimp Pasta</h5>
+                <h3 class="dark:text-white text-lg font-bold">$7.15</h3>
+              </div>
+              <div class="relative min-w-32 min-h-32 p-3 dark:bg-gray-700 rounded-lg text-center content-center shadow-md shadow-gray-900">
+                <button type="button" class="absolute top-1 right-1">
+                  <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12.01 6.001C6.5 1 1 8 5.782 13.001L12.011 20l6.23-7C23 8 17.5 1 12.01 6.002Z"/>
+                  </svg>
+                </button>
+                <img src="images/burguer-combo.jpg" class="object-cover size-32 rounded-full mx-auto"/>
+                <h5 class="dark:text-white font-medium mt-1">Chess Burguer Combo</h5>
+                <h3 class="dark:text-white text-lg font-bold">$8.25</h3>
+              </div>
+              <div class="relative min-w-32 min-h-32 p-3 dark:bg-gray-700 rounded-lg text-center content-center shadow-md shadow-gray-900">
+                <button type="button" class="absolute top-1 right-1">
+                  <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12.01 6.001C6.5 1 1 8 5.782 13.001L12.011 20l6.23-7C23 8 17.5 1 12.01 6.002Z"/>
+                  </svg>
+                </button>
+                <img src="images/hot-dog.jpg" class="object-cover size-32 rounded-full mx-auto"/>
+                <h5 class="dark:text-white font-medium mt-1">Hot Dog</h5>
+                <h3 class="dark:text-white text-lg font-bold">$2.70</h3>
+              </div>
+              <div class="relative min-w-32 min-h-32 p-3 dark:bg-gray-700 rounded-lg text-center content-center shadow-md shadow-gray-900">
+                <button type="button" class="absolute top-1 right-1">
+                  <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12.01 6.001C6.5 1 1 8 5.782 13.001L12.011 20l6.23-7C23 8 17.5 1 12.01 6.002Z"/>
+                  </svg>
+                </button>
+                <img src="images/cordon-bleu.jpg" class="object-cover size-32 rounded-full mx-auto"/>
+                <h5 class="dark:text-white font-medium mt-1">Cordon Bleu</h5>
+                <h3 class="dark:text-white text-lg font-bold">$9.30</h3>
+              </div>
+              <div class="relative min-w-32 min-h-32 p-3 dark:bg-gray-700 rounded-lg text-center content-center shadow-md shadow-gray-900">
+                <button type="button" class="absolute top-1 right-1">
+                  <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12.01 6.001C6.5 1 1 8 5.782 13.001L12.011 20l6.23-7C23 8 17.5 1 12.01 6.002Z"/>
+                  </svg>
+                </button>
+                <img src="images/chinese-rice.jpg" class="object-cover size-32 rounded-full mx-auto"/>
+                <h5 class="dark:text-white font-medium mt-1">Chinese Rice</h5>
+                <h3 class="dark:text-white text-lg font-bold">$7.60</h3>
+              </div>
+            </div>
+          </div>
+          <!--bottom bar-->
+          <div class="absolute bottom-0 left-0 z-50 w-full h-16 bg-white border-t border-gray-200 dark:bg-gray-700 dark:border-gray-600 shadow-gray-900">
+            <div class="grid h-full max-w-lg grid-cols-5 mx-auto">
+              <button type="button" class="inline-flex flex-col items-center justify-center font-medium px-2 hover:bg-gray-50 dark:hover:bg-gray-800 group">
+                <svg class="w-6 h-6 text-gray-500 dark:text-gray-400 group-hover:text-orange-600 dark:group-hover:text-orange-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                  <path fill-rule="evenodd" d="M4 3a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h1v2a1 1 0 0 0 1.707.707L9.414 13H15a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H4Z" clip-rule="evenodd"/>
+                  <path fill-rule="evenodd" d="M8.023 17.215c.033-.03.066-.062.098-.094L10.243 15H15a3 3 0 0 0 3-3V8h2a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-1v2a1 1 0 0 1-1.707.707L14.586 18H9a1 1 0 0 1-.977-.785Z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-sm text-gray-500 dark:text-gray-400 group-hover:text-orange-600 dark:group-hover:text-orange-500">User Chat</span>
+              </button>
+              <button type="button" class="inline-flex flex-col items-center justify-center font-medium px-2 hover:bg-gray-50 dark:hover:bg-gray-800 group">
+                <svg class="w-6 h-6 text-gray-500 dark:text-gray-400 group-hover:text-orange-600 dark:group-hover:text-orange-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                  <path fill-rule="evenodd" d="M12 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm-2 9a4 4 0 0 0-4 4v1a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-1a4 4 0 0 0-4-4h-4Z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-sm text-gray-500 dark:text-gray-400 group-hover:text-orange-600 dark:group-hover:text-orange-500">Profile</span>
+              </button>
+              <button type="button" class="inline-flex flex-col items-center justify-center font-medium px-2 hover:bg-gray-50 dark:hover:bg-gray-800 group">
+                <svg class="w-6 h-6 text-gray-500 dark:text-gray-400 group-hover:text-orange-600 dark:group-hover:text-orange-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                  <path fill-rule="evenodd" d="M11.293 3.293a1 1 0 0 1 1.414 0l6 6 2 2a1 1 0 0 1-1.414 1.414L19 12.414V19a2 2 0 0 1-2 2h-3a1 1 0 0 1-1-1v-3h-2v3a1 1 0 0 1-1 1H7a2 2 0 0 1-2-2v-6.586l-.293.293a1 1 0 0 1-1.414-1.414l2-2 6-6Z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-sm text-gray-500 dark:text-gray-400 group-hover:text-orange-600 dark:group-hover:text-orange-500">Home</span>
+              </button>
+              <button type="button" class="inline-flex flex-col items-center justify-center font-medium px-2 hover:bg-gray-50 dark:hover:bg-gray-800 group">
+                <svg class="w-6 h-6 text-gray-500 dark:text-gray-400 group-hover:text-orange-600 dark:group-hover:text-orange-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 45.001 45.001">
+                  <path d="M43.604,41.146c0.703,0.64,0.945,2.207,0.037,3.107c-0.902,0.909-2.472,0.668-3.109-0.034 c-5.893-6.328-11.783-12.659-17.676-18.989l-0.67-0.715c-6.164,6.618-12.326,13.239-18.488,19.86 c-0.635,0.701-2.202,0.943-3.104,0.034c-0.91-0.901-0.67-2.472,0.032-3.109c6.642-6.178,13.279-12.358,19.92-18.539 c0,0-3.214-3.467-4.6-4.955c-3.243,2.325-8.049,1.441-10.938-2.126C1.901,11.917-0.779,5.187,1.815,2.431 c2.759-2.596,9.485,0.09,13.248,3.194c3.566,2.892,4.455,7.691,2.125,10.936c1.67,1.556,3.34,3.108,5.012,4.663 c-0.004,0.003-0.006,0.005-0.01,0.008c0,0,0.104,0.082,0.01-0.008c1.562-1.455,3.125-2.909,4.688-4.364 c-1.32-2.254-0.443-5.415,1.701-7.219c2.459-2.061,11.57-9.883,11.815-9.635c0.244,0.243-6.146,6.281-10.415,10.563l0.712,0.711 c4.557-3.994,10.99-9.984,11.238-9.74c0.244,0.245-5.946,6.48-10.076,10.905l0.707,0.705C36.988,9.017,43.225,2.826,43.467,3.069 c0.245,0.246-5.746,6.68-9.74,11.237l0.707,0.706c4.28-4.269,10.315-10.659,10.562-10.417c0.247,0.246-9.618,11.805-9.632,11.822 c-0.002-0.002,2.094-2.462-0.008-0.006c-2.006,2.347-5.002,3.057-7.217,1.705c-1.438,1.543-2.873,3.086-4.309,4.629 C23.704,22.626,37.014,35.013,43.604,41.146z"></path>
+                </svg>
+                <span class="text-sm text-gray-500 dark:text-gray-400 group-hover:text-orange-600 dark:group-hover:text-orange-500">Menu</span>
+              </button>
+              <button type="button" class="inline-flex flex-col items-center justify-center font-medium px-2 hover:bg-gray-50 dark:hover:bg-gray-800 group">
+                <svg class="w-6 h-6 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-orange-600 dark:group-hover:text-orange-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                  <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                </svg>
+                <span class="text-sm text-gray-500 dark:text-gray-400 group-hover:text-orange-600 dark:group-hover:text-orange-500">Favorites</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

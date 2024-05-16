@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./output.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="crossorigin=""></script>
+  </head>
+  <body>
+    <div class="dark:bg-gray-900 w-screen h-screen overflow-hidden">
+      <div class="container  mx-auto h-full">
+        <div class="relative max-w-[430px] w-full h-full mx-auto bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 overflow-scroll no-scrollbar">
+          <!--top bar-->
+          <div class="w-full p-2 pb-0 bg-white border-t border-gray-200 dark:bg-gray-700 dark:border-gray-600 shadow-md shadow-gray-900">
+            <div class="w-full h-12 flex justify-between">
+              <div class="content-center">
+                <button type="button" class="p-2 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-full group">
+                  <svg class="w-6 h-6 text-gray-500 dark:text-gray-400 group-hover:text-orange-600 dark:group-hover:text-orange-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12l4-4m-4 4 4 4"/>
+                  </svg>
+                </button>
+              </div>
+              <h5 class="text-white content-center font-semibold">Deliver to</h5>
+              <div class="content-center">
+                <button type="button" class="p-2 hover:bg-gray-50 dark:hover:bg-gray-900 rounded-full group">
+                  <svg class="w-6 h-6 text-gray-500 dark:text-gray-400 group-hover:text-orange-600 dark:group-hover:text-orange-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.529 9.988a2.502 2.502 0 1 1 5 .191A2.441 2.441 0 0 1 12 12.582V14m-.01 3.008H12M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!--content-->
+          <div class="w-full px-4 pt-4 no-scrollbar">
+            <!--stepper-->
+            <ol class="flex items-center w-full">
+              <li class="flex w-full items-center text-gray-200 dark:text-gray-700 after:content-[''] after:w-full after:h-1 after:border-b after:border-gray-100 after:border-4 after:inline-block dark:after:border-gray-700">
+                <span class="flex items-center justify-center w-6 h-6 bg-green-400 rounded-full dark:bg-green-600 shrink-0">
+                  <!-- <svg class="w-2.5 h-2.5 text-blue-700 dark:text-blue-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12"> -->
+                  <!--   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5"/> -->
+                  <!-- </svg> -->
+                </span>
+              </li>
+              <li class="flex w-full items-center after:content-[''] after:w-full after:h-1 after:border-b after:border-gray-100 after:border-4 after:inline-block dark:after:border-gray-700">
+                <span class="flex items-center justify-center w-6 h-6 bg-gray-100 rounded-full dark:bg-gray-700 shrink-0">
+                  <!-- <svg class="w-4 h-4 text-gray-500  dark:text-gray-100" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16"> -->
+                  <!--   <path d="M18 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2ZM6.5 3a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3.014 13.021l.157-.625A3.427 3.427 0 0 1 6.5 9.571a3.426 3.426 0 0 1 3.322 2.805l.159.622-6.967.023ZM16 12h-3a1 1 0 0 1 0-2h3a1 1 0 0 1 0 2Zm0-3h-3a1 1 0 1 1 0-2h3a1 1 0 1 1 0 2Zm0-3h-3a1 1 0 1 1 0-2h3a1 1 0 1 1 0 2Z"/> -->
+                  <!-- </svg> -->
+                </span>
+              </li>
+              <li class="flex items-center">
+                <span class="flex items-center justify-center w-6 h-6 bg-gray-100 rounded-full dark:bg-gray-700 shrink-0">
+                  <!-- <svg class="w-4 h-4 text-gray-500 lg:w-5 lg:h-5 dark:text-gray-100" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20"> -->
+                  <!--   <path d="M16 1h-3.278A1.992 1.992 0 0 0 11 0H7a1.993 1.993 0 0 0-1.722 1H2a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2ZM7 2h4v3H7V2Zm5.7 8.289-3.975 3.857a1 1 0 0 1-1.393 0L5.3 12.182a1.002 1.002 0 1 1 1.4-1.436l1.328 1.289 3.28-3.181a1 1 0 1 1 1.392 1.435Z"/> -->
+                  <!-- </svg> -->
+                </span>
+              </li>
+            </ol>
+            <!--address-->
+            <div class="w-full mt-5">
+              <form class="flex mx-auto mb-5">
+                <div class="grow relative mr-2">
+                  <div class="absolute inset-y-0 start-0 flex items-center ps-1.5 pointer-events-none">
+                    <svg class="w-6 h-6 text-gray-800 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                      <path fill-rule="evenodd" d="M11.906 1.994a8.002 8.002 0 0 1 8.09 8.421 7.996 7.996 0 0 1-1.297 3.957.996.996 0 0 1-.133.204l-.108.129c-.178.243-.37.477-.573.699l-5.112 6.224a1 1 0 0 1-1.545 0L5.982 15.26l-.002-.002a18.146 18.146 0 0 1-.309-.38l-.133-.163a.999.999 0 0 1-.13-.202 7.995 7.995 0 0 1 6.498-12.518ZM15 9.997a3 3 0 1 1-5.999 0 3 3 0 0 1 5.999 0Z" clip-rule="evenodd"/>
+                    </svg>
+                  </div>
+                  <input type="text" id="input-group-1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full ps-10 py-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-500 dark:focus:border-orange-500 outline-none" placeholder="Enter Address">
+                </div>
+                <button type="submit" class="p-2.5 text-sm font-medium text-white bg-gray-700 rounded-lg border border-gray-700 dark:bg-gray-900 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-blue-300  dark:hover:bg-orange-700 dark:focus:ring-blue-800">
+                  <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                  </svg>
+                  <span class="sr-only">Search</span>
+                </button>
+              </form>
+            </div>
+            <!--map-->
+            <div id="map" class="w-full h-[360px]"></div>
+            <!--bottom sheet-->
+            <div class="absolute bottom-0 left-0 w-full h-28 dark:bg-gray-700 rounded-t-2xl p-4">
+              <div class="flex items-center justify-around mt-2">
+                <button type="button" class="bg-orange-600 dark:text-white font-semibold px-16 py-2 rounded-2xl">Proceed</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      const customer = {
+            lat: 7.064509,
+            lng: -73.099535,
+            icon: L.icon({
+                      iconUrl: "images/customer-house.png",
+                      iconSize: [62, 52],
+            }),
+      };
+
+      var map = L.map('map').setView([customer.lat, customer.lng], 16);
+
+      L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png', {
+              maxZoom: 20,
+              attribution: '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      }).addTo(map);
+
+      var cm = L.marker([customer.lat, customer.lng], {icon: customer.icon}).addTo(map).bindPopup("John's House");
+    </script>
+  </body>
+</html>

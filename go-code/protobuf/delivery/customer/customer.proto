@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package delivery.customer;
+
+import "google/protobuf/empty.proto";
+import "protobuf/delivery/delivery.proto";
+
+option go_package = "github.com/joseluis8906/go-code/protobuf/delivery/customerpb";
+
+service CustomerService {
+  rpc TodaysOffer(TodaysSpecialOfferRequest) returns (delivery.Product);
+  rpc PopularNow(PopularNow) returns (delivery.Menu);
+}
+

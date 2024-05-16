@@ -1,0 +1,219 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./output.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="crossorigin=""></script>
+    <!--leaflet-routing-machine-->
+    <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+  </head>
+  <body>
+    <div class="dark:bg-gray-900 w-screen h-screen overflow-clip">
+      <div class="container mx-auto h-screen">
+        <div class="max-w-[430px] w-full h-full relative mx-auto bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 ">
+          <!--top bar-->
+          <div class="w-full p-2 pb-0 bg-white border-t border-gray-200 dark:bg-gray-700 dark:border-gray-600 shadow-md shadow-gray-900">
+            <div class="w-full h-12 flex justify-between">
+              <div class="content-center">
+                <button type="button" class="p-2 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-full group">
+                  <svg class="w-6 h-6 text-gray-500 dark:text-gray-400 group-hover:text-orange-600 dark:group-hover:text-orange-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12l4-4m-4 4 4 4"/>
+                  </svg>
+                </button>
+              </div>
+              <h5 class="text-white content-center font-semibold">Order Tracking</h5>
+              <div class="content-center">
+                <button type="button" class="p-2 hover:bg-gray-50 dark:hover:bg-gray-900 rounded-full group">
+                  <svg class="w-6 h-6 text-gray-500 dark:text-gray-400 group-hover:text-orange-600 dark:group-hover:text-orange-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.529 9.988a2.502 2.502 0 1 1 5 .191A2.441 2.441 0 0 1 12 12.582V14m-.01 3.008H12M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!--content-->
+          <div class="w-full h-full overflow-clip pt-2 overflow-y-scroll no-scrollbar ">
+            <div id="map" class="w-full h-1/2"></div>
+          </div>
+          <!--bottom sheet-->
+          <div class="absolute bottom-0 left-0 w-full h-80 dark:bg-gray-700 rounded-t-2xl pl-8 pt-8">
+            <ol class="items-center flex">
+              <li class="relative">
+                <div class="flex items-center">
+                  <div class="z-10 flex items-center justify-center w-6 h-6 bg-orange-500 rounded-full ring-0 ring-white dark:bg-orange-600 dark:ring-gray-900 shrink-0">
+                    <svg class="w-2.5 h-2.5 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                    </svg>
+                  </div>
+                  <div class="flex w-full bg-gray-300 h-0.5 dark:bg-gray-800"></div>
+                </div>
+                <div class="mt-3 pe-8">
+                  <h3 class="text-sm font-semibold text-gray-900 dark:text-white text-balance">Order Received</h3>
+                  <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">9:15 PM</time>
+                </div>
+              </li>
+              <li class="relative">
+                <div class="flex items-center">
+                  <div class="z-10 flex items-center justify-center w-6 h-6 bg-orange-500 rounded-full ring-0 ring-white dark:bg-orange-600 dark:ring-gray-900 shrink-0">
+                    <svg class="w-2.5 h-2.5 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                    </svg>
+                  </div>
+                  <div class="flex w-full bg-gray-300 h-0.5 dark:bg-gray-800"></div>
+                </div>
+                <div class="mt-3 pe-8">
+                  <h3 class="text-sm font-semibold text-gray-900 dark:text-white">Food Prepared</h3>
+                  <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">9:35 PM</time>
+                </div>
+              </li>
+              <li class="relative">
+                <div class="flex items-center">
+                  <div class="z-10 flex items-center justify-center w-6 h-6 bg-orange-500 rounded-full ring-0 ring-white dark:bg-orange-600 dark:ring-gray-900 shrink-0">
+                    <svg class="w-2.5 h-2.5 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                    </svg>
+                  </div>
+                  <div class="flex w-full bg-gray-200 h-0.5 dark:bg-gray-800"></div>
+                </div>
+                <div class="mt-3 pe-8">
+                  <h3 class="text-sm font-semibold text-gray-900 dark:text-white">Order Picked up</h3>
+                  <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">9:40 PM</time>
+                </div>
+              </li>
+              <li class="relative">
+                <div class="flex items-center">
+                  <div class="z-10 flex items-center justify-center w-6 h-6 bg-orange-500 rounded-full ring-0 ring-white dark:bg-orange-600 dark:ring-gray-900 shrink-0">
+                    <svg class="w-2.5 h-2.5 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                    </svg>
+                  </div>
+                </div>
+                <div class="mt-3 pe-8">
+                  <h3 class="text-sm font-semibold text-gray-900 dark:text-white">Order Delivered</h3>
+                  <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">9:52 PM</time>
+                </div>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      const customer = {
+            lat: 7.064509,
+            lng: -73.099535,
+            icon: L.icon({
+                      iconUrl: "images/customer-house.png",
+                      iconSize: [42, 32],
+            }),
+      };
+
+      const store = {
+              lat: 7.071811,
+              lng: -73.105119,
+              icon: L.icon({
+                      iconUrl: "images/store.png",
+                      iconSize: [32, 32],
+              }),
+      };
+
+      const courier = {
+              lat: 7.071811,
+              lng: -73.105119,
+              icon: {
+                      east: L.icon({
+                              iconUrl: "images/courier-east.png",
+                              iconSize: [24, 24],
+                      }),
+                      southeast: L.icon({
+                              iconUrl: "images/courier-southeast.png",
+                              iconSize: [24, 24],
+                      }),
+                      south: L.icon({
+                              iconUrl: "images/courier-south.png",
+                              iconSize: [24, 24],
+                      }),
+                      southwest: L.icon({
+                              iconUrl: "images/courier-southwest.png",
+                              iconSize: [24, 24],
+                      }),
+                      west: L.icon({
+                              iconUrl: "images/courier-west.png",
+                              iconSize: [24, 24],
+                      }),
+                      northwest: L.icon({
+                              iconUrl: "images/courier-northwest.png",
+                              iconSize: [24, 24],
+                      }),
+                      north: L.icon({
+                              iconUrl: "images/courier-north.png",
+                              iconSize: [24, 24],
+                      }),
+                      northeast: L.icon({
+                              iconUrl: "images/courier-northeast.png",
+                              iconSize: [24, 24],
+                      }),
+              },
+      };
+
+      const midpoint = [(customer.lat + store.lat) / 2, (customer.lng + store.lng) / 2];
+
+      var map = L.map('map').setView(midpoint, 15);
+      L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png', {
+              maxZoom: 20,
+              attribution: '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      }).addTo(map);
+
+      var sm = L.marker([store.lat, store.lng], {icon: store.icon}).addTo(map).bindPopup("C.C Parque Caracolí");
+      var cm = L.marker([customer.lat, customer.lng], {icon: customer.icon}).addTo(map).bindPopup("John's House");
+      var crm = L.marker([courier.lat, courier.lng], {icon: courier.icon.southwest}).addTo(map).bindPopup("Wilson");
+
+      L.Routing.control({
+                lineOptions: {
+                        styles: [{color: '#242424', opacity: 0, weight: 7}],
+                },
+                waypoints: [
+                        L.latLng(store.lat, store.lng),
+                        L.latLng(customer.lat, customer.lng),
+                ],
+                createMarker: function() { return null },
+                serviceUrl: 'http://localhost:5000/route/v1',
+      }).on("routesfound", function(e) {
+                e.routes[0].coordinates.forEach(function(coord, index) {
+                        setTimeout(() => {
+                                calculateVectorDirection(index, e.routes[0].coordinates);
+                                crm.setLatLng([coord.lat, coord.lng]);
+                        }, 250 * index);
+                })
+      }).addTo(map);
+      function calculateVectorDirection(index, coords) {
+          if (index === coords.length - 1) return;
+          let start = coords[index];
+          let end = coords[index + 1];
+          let angle = Math.atan2(end.lat - start.lat, end.lng - start.lng) * (180 / Math.PI);
+          console.log(Math.round(angle));
+          if (angle >= -30 && angle <= 30) {
+                      crm.setIcon(courier.icon.east);
+          } else if (angle > 30 && angle < 80) {
+                      crm.setIcon(courier.icon.northeast);
+          } else if (angle >= 70 && angle <= 100) {
+                      crm.setIcon(courier.icon.north);
+          } else if (angle > 100 && angle < 160) {
+                      crm.setIcon(courier.icon.northwest);
+          } else if (angle >= 160 || angle <= -160) {
+                      crm.setIcon(courier.icon.west);
+          } else if (angle > -160 && angle < -110) {
+                      crm.setIcon(courier.icon.southwest);
+              } else if (angle >= -110 && angle >= -80) {
+                      crm.setIcon(courier.icon.south);
+          } else if (angle > -80 && angle < -30) {
+                      crm.setIcon(courier.icon.southeast);
+          }
+      }
+    </script>
+  </body>
+</html>
