@@ -2,6 +2,7 @@
 
 # Dependency directories (remove the comment below to include it)
 go-code/vendor/
+go-code/bin/*
 
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
