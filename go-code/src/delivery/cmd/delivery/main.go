@@ -10,7 +10,7 @@ import (
 	"go.uber.org/fx"
 	"google.golang.org/grpc"
 
-	"github.com/joseluis8906/go-code/src/delivery/internal/app"
+	"github.com/joseluis8906/yummies/go-code/src/delivery/internal/app"
 )
 
 func main() {

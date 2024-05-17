@@ -4,9 +4,9 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/joseluis8906/go-code/src/delivery/internal/product"
+	"github.com/joseluis8906/yummies/go-code/src/delivery/internal/product"
 
-	"github.com/joseluis8906/go-code/src/pkg/repository"
+	"github.com/joseluis8906/yummies/go-code/src/pkg/repository"
 )
 
 type (

@@ -3,7 +3,7 @@ package algorithms_test
 import (
 	"testing"
 
-	"github.com/joseluis8906/go-code/src/algorithms"
+	"github.com/joseluis8906/yummies/go-code/src/algorithms"
 )
 
 func TestLongestPalindromicSubstr(t *testing.T) {

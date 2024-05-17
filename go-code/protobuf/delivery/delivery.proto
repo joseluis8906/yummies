@@ -5,7 +5,7 @@ package delivery;
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/wrappers.proto";
 
-option go_package = "github.com/joseluis8906/go-code/protobuf/deliverypb";
+option go_package = "github.com/joseluis8906/yummies/go-code/protobuf/deliverypb";
 
 message ID {
   google.protobuf.StringValue type = 1;

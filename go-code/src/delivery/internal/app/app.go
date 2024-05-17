@@ -7,11 +7,11 @@ import (
 	"net"
 	"net/http"
 
-	"github.com/joseluis8906/go-code/protobuf/delivery/storemanagerpb"
+	"github.com/joseluis8906/yummies/go-code/src/delivery/pkg/pb"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 
-	logl "github.com/joseluis8906/go-code/src/delivery/internal/app/log"
-	"github.com/joseluis8906/go-code/src/delivery/internal/storemanager"
+	logl "github.com/joseluis8906/yummies/go-code/src/delivery/internal/app/log"
+	"github.com/joseluis8906/yummies/go-code/src/delivery/internal/home"
 
 	"github.com/spf13/viper"
 	"go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc"
@@ -27,9 +27,9 @@ type (
 	Deps struct {
 		fx.In
 
-		Config       *viper.Viper
-		Log          *log.Logger
-		StoreManager *storemanager.StoreManager
+		Config      *viper.Viper
+		Log         *log.Logger
+		HomeService *home.Service
 	}
 )
 
@@ -52,7 +52,7 @@ func NewGRPCServer(lc fx.Lifecycle, deps Deps) *grpc.Server {
 			}
 
 			grpcServer = grpc.NewServer(grpc.StatsHandler(otelgrpc.NewServerHandler()))
-			storemanagerpb.RegisterStoreManagerServiceServer(grpcServer, deps.StoreManager)
+			pb.RegisterHomeServiceServer(grpcServer, deps.HomeService)
 			reflection.Register(grpcServer)
 			go func() {
 				err := grpcServer.Serve(lis)

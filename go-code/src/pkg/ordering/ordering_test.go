@@ -3,7 +3,7 @@ package ordering_test
 import (
 	"testing"
 
-	"github.com/joseluis8906/go-code/src/pkg/ordering"
+	"github.com/joseluis8906/yummies/go-code/src/pkg/ordering"
 )
 
 func TestOrdering(t *testing.T) {

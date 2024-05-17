@@ -3,8 +3,8 @@ package store
 import (
 	"encoding/json"
 
-	"github.com/joseluis8906/go-code/protobuf/deliverypb"
-	"github.com/joseluis8906/go-code/src/delivery/internal/product"
+	// "github.com/joseluis8906/yummies/go-code/protobuf/deliverypb"
+	"github.com/joseluis8906/yummies/go-code/src/delivery/internal/product"
 )
 
 type (
@@ -82,17 +82,17 @@ func (s Store) MarshalJSON() ([]byte, error) {
 	return json.Marshal(t)
 }
 
-func FromPB(data *deliverypb.Store) (Store, error) {
-	name := data.GetName().GetValue()
-	country := data.GetCountry().GetValue()
-	city := data.GetCity().GetValue()
-	address := data.GetAddress().GetValue()
+// func FromPB(data *deliverypb.Store) (Store, error) {
+// 	name := data.GetName().GetValue()
+// 	country := data.GetCountry().GetValue()
+// 	city := data.GetCity().GetValue()
+// 	address := data.GetAddress().GetValue()
 
-	var sb Builder
-	sb.Name(name)
-	sb.Country(country)
-	sb.City(city)
-	sb.Address(address)
+// 	var sb Builder
+// 	sb.Name(name)
+// 	sb.Country(country)
+// 	sb.City(city)
+// 	sb.Address(address)
 
-	return sb.Build()
-}
+// 	return sb.Build()
+// }

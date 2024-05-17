@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"regexp"
 
-	"github.com/joseluis8906/go-code/src/pkg/financial"
-	"github.com/joseluis8906/go-code/src/pkg/types"
+	"github.com/joseluis8906/yummies/go-code/src/pkg/financial"
+	"github.com/joseluis8906/yummies/go-code/src/pkg/types"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/bsontype"
 )

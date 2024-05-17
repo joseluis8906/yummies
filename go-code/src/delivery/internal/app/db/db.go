@@ -1,4 +1,4 @@
-package nosql
+package db
 
 import (
 	"context"

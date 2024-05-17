@@ -1,4 +1,4 @@
-module github.com/joseluis8906/go-code
+module github.com/joseluis8906/yummies/go-code
 
 go 1.21
 

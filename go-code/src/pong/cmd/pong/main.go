@@ -10,8 +10,8 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
 
-	"github.com/joseluis8906/go-code/protobuf/pong/pongpb"
-	"github.com/joseluis8906/go-code/src/pong"
+	"github.com/joseluis8906/yummies/go-code/protobuf/pong/pongpb"
+	"github.com/joseluis8906/yummies/go-code/src/pong"
 )
 
 const port = 50051

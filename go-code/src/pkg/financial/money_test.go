@@ -3,8 +3,8 @@ package financial_test
 import (
 	"testing"
 
-	"github.com/joseluis8906/go-code/src/pkg/cmp"
-	"github.com/joseluis8906/go-code/src/pkg/financial"
+	"github.com/joseluis8906/yummies/go-code/src/pkg/cmp"
+	"github.com/joseluis8906/yummies/go-code/src/pkg/financial"
 )
 
 func TestMoney_Multiplication(t *testing.T) {

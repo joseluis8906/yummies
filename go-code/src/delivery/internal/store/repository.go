@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/joseluis8906/go-code/src/pkg/repository"
+	"github.com/joseluis8906/yummies/go-code/src/pkg/repository"
 	"go.opentelemetry.io/otel"
 
 	"go.mongodb.org/mongo-driver/bson"

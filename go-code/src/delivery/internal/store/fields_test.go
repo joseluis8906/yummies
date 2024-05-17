@@ -3,7 +3,7 @@ package store
 import (
 	"testing"
 
-	"github.com/joseluis8906/go-code/src/pkg/cmp"
+	"github.com/joseluis8906/yummies/go-code/src/pkg/cmp"
 	"go.mongodb.org/mongo-driver/bson"
 )
 
