@@ -10,7 +10,7 @@ import (
 
 func New() *viper.Viper {
 	v := viper.New()
-	v.AddRemoteProvider("etcd3", os.Getenv("CONFIG_URL"), "/config/delivery.yml")
+	v.AddRemoteProvider("etcd3", os.Getenv("CONFIG_URL"), "/config/yummies.yml")
 	v.SetConfigType("yml")
 	if err := v.ReadRemoteConfig(); err != nil {
 		log.Fatalf("cannot read remote config: %v", err)

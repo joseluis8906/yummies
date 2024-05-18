@@ -1,0 +1,6 @@
+name: Yummies Special Burger
+price: 
+  amount: 265
+  decimals: 2
+  currency: USD
+discount: 10.0

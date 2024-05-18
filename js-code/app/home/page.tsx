@@ -1,4 +1,20 @@
+import { HomeServiceClient } from "../../pb/HomeServiceClientPb"
+import { HomeRequest, HomeResponse } from "../../pb/home_pb";
+
 export default function Home() {
+    var client = new HomeServiceClient('http://localhost:8080')
+    const headers = { /* "x-auth-email": "john.doe@example.com" */ }
+    var req = new HomeRequest()
+    req.setCustomer('john.doe@example.com')
+    client.home(req, headers, (err: Error, res: HomeResponse) => {
+        if (err != null) {
+            console.log(`calling home: ${err.message}`);
+            return
+        }
+
+        console.log(res.toObject().popularNowList);
+    })
+
     return (
         <div className="w-full h-full">
             <AppBar></AppBar>

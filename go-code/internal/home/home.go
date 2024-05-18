@@ -2,6 +2,7 @@ package home
 
 import (
 	"context"
+	"fmt"
 	"log"
 
 	"github.com/joseluis8906/yummies/go-code/pkg/grpc"
@@ -81,7 +82,7 @@ func New(deps Deps) *Service {
 	s := &Service{
 		Nats: deps.Nats,
 		Log:  deps.Log,
-		DB:   deps.DB.Database("delivery"),
+		DB:   deps.DB.Database("yummies"),
 	}
 
 	return s
@@ -94,7 +95,7 @@ func (s *Service) Home(ctx context.Context, req *pb.HomeRequest) (*pb.HomeRespon
 	_, err := grpc.Header(ctx, authEmail).ExpectOne()
 	if err != nil {
 		s.Log.Printf("getting x-auth-email: %q", err)
-		return nil, err
+		return nil, fmt.Errorf("getting x-auth-email header: %w", err)
 	}
 
 	cur, err := s.DB.Collection("home.categories").Find(ctx, bson.D{})
