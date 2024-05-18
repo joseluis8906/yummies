@@ -37,12 +37,14 @@ type (
 
 	TodaysSpecialOffer struct {
 		Name     string  `bson:"name"`
+		Img      string  `bson:"img"`
 		Price    Money   `bson:"price"`
 		Discount float32 `bson:"discount"`
 	}
 
 	PopularNow struct {
 		Name       string `bson:"name"`
+		Img        string `bson:"img"`
 		Price      Money  `bson:"price"`
 		IsFavorite bool   `bson:"is_favorite"`
 	}
@@ -65,6 +67,7 @@ func (m Money) PB() *pb.HomeMoney {
 func (tso TodaysSpecialOffer) PB() *pb.HomeTodaysSpecialOffer {
 	return &pb.HomeTodaysSpecialOffer{
 		Name:     tso.Name,
+		Img:      tso.Img,
 		Price:    tso.Price.PB(),
 		Discount: tso.Discount,
 	}
@@ -73,6 +76,7 @@ func (tso TodaysSpecialOffer) PB() *pb.HomeTodaysSpecialOffer {
 func (pn PopularNow) PB() *pb.HomePopularNow {
 	return &pb.HomePopularNow{
 		Name:       pn.Name,
+		Img:        pn.Img,
 		Price:      pn.Price.PB(),
 		IsFavorite: pn.IsFavorite,
 	}

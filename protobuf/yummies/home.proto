@@ -23,16 +23,18 @@ message HomeResponse {
 
 message HomeTodaysSpecialOffer {
     string name = 1;
-    string description = 2;
-    HomeMoney price = 3;
-    float discount = 4;
-    HomeMoney price_discounted = 5;
+    string img = 2;
+    string description = 3;
+    HomeMoney price = 4;
+    float discount = 5;
+    HomeMoney price_discounted = 6;
 }
 
 message HomePopularNow {
     string name = 1;
-    HomeMoney price = 2;
-    bool is_favorite = 3;
+    string img = 2;
+    HomeMoney price = 3;
+    bool is_favorite = 4;
 }
 
 message HomeMoney {

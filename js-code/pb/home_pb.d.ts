@@ -56,6 +56,9 @@ export class HomeTodaysSpecialOffer extends jspb.Message {
   getName(): string;
   setName(value: string): HomeTodaysSpecialOffer;
 
+  getImg(): string;
+  setImg(value: string): HomeTodaysSpecialOffer;
+
   getDescription(): string;
   setDescription(value: string): HomeTodaysSpecialOffer;
 
@@ -83,6 +86,7 @@ export class HomeTodaysSpecialOffer extends jspb.Message {
 export namespace HomeTodaysSpecialOffer {
   export type AsObject = {
     name: string,
+    img: string,
     description: string,
     price?: HomeMoney.AsObject,
     discount: number,
@@ -93,6 +97,9 @@ export namespace HomeTodaysSpecialOffer {
 export class HomePopularNow extends jspb.Message {
   getName(): string;
   setName(value: string): HomePopularNow;
+
+  getImg(): string;
+  setImg(value: string): HomePopularNow;
 
   getPrice(): HomeMoney | undefined;
   setPrice(value?: HomeMoney): HomePopularNow;
@@ -113,6 +120,7 @@ export class HomePopularNow extends jspb.Message {
 export namespace HomePopularNow {
   export type AsObject = {
     name: string,
+    img: string,
     price?: HomeMoney.AsObject,
     isFavorite: boolean,
   }

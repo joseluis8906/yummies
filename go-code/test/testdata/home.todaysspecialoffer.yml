@@ -1,4 +1,5 @@
 name: Yummies Special Burger
+img: burger-combo.webp
 price: 
   amount: 265
   decimals: 2

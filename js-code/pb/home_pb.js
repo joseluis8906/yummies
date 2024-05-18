@@ -554,9 +554,10 @@ proto.yummies.HomeTodaysSpecialOffer.prototype.toObject = function(opt_includeIn
 proto.yummies.HomeTodaysSpecialOffer.toObject = function(includeInstance, msg) {
   var f, obj = {
     name: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    description: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    img: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    description: jspb.Message.getFieldWithDefault(msg, 3, ""),
     price: (f = msg.getPrice()) && proto.yummies.HomeMoney.toObject(includeInstance, f),
-    discount: jspb.Message.getFloatingPointFieldWithDefault(msg, 4, 0.0),
+    discount: jspb.Message.getFloatingPointFieldWithDefault(msg, 5, 0.0),
     priceDiscounted: (f = msg.getPriceDiscounted()) && proto.yummies.HomeMoney.toObject(includeInstance, f)
   };
 
@@ -600,18 +601,22 @@ proto.yummies.HomeTodaysSpecialOffer.deserializeBinaryFromReader = function(msg,
       break;
     case 2:
       var value = /** @type {string} */ (reader.readString());
-      msg.setDescription(value);
+      msg.setImg(value);
       break;
     case 3:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setDescription(value);
+      break;
+    case 4:
       var value = new proto.yummies.HomeMoney;
       reader.readMessage(value,proto.yummies.HomeMoney.deserializeBinaryFromReader);
       msg.setPrice(value);
       break;
-    case 4:
+    case 5:
       var value = /** @type {number} */ (reader.readFloat());
       msg.setDiscount(value);
       break;
-    case 5:
+    case 6:
       var value = new proto.yummies.HomeMoney;
       reader.readMessage(value,proto.yummies.HomeMoney.deserializeBinaryFromReader);
       msg.setPriceDiscounted(value);
@@ -652,17 +657,24 @@ proto.yummies.HomeTodaysSpecialOffer.serializeBinaryToWriter = function(message,
       f
     );
   }
-  f = message.getDescription();
+  f = message.getImg();
   if (f.length > 0) {
     writer.writeString(
       2,
       f
     );
   }
+  f = message.getDescription();
+  if (f.length > 0) {
+    writer.writeString(
+      3,
+      f
+    );
+  }
   f = message.getPrice();
   if (f != null) {
     writer.writeMessage(
-      3,
+      4,
       f,
       proto.yummies.HomeMoney.serializeBinaryToWriter
     );
@@ -670,14 +682,14 @@ proto.yummies.HomeTodaysSpecialOffer.serializeBinaryToWriter = function(message,
   f = message.getDiscount();
   if (f !== 0.0) {
     writer.writeFloat(
-      4,
+      5,
       f
     );
   }
   f = message.getPriceDiscounted();
   if (f != null) {
     writer.writeMessage(
-      5,
+      6,
       f,
       proto.yummies.HomeMoney.serializeBinaryToWriter
     );
@@ -704,10 +716,10 @@ proto.yummies.HomeTodaysSpecialOffer.prototype.setName = function(value) {
 
 
 /**
- * optional string description = 2;
+ * optional string img = 2;
  * @return {string}
  */
-proto.yummies.HomeTodaysSpecialOffer.prototype.getDescription = function() {
+proto.yummies.HomeTodaysSpecialOffer.prototype.getImg = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
@@ -716,18 +728,36 @@ proto.yummies.HomeTodaysSpecialOffer.prototype.getDescription = function() {
  * @param {string} value
  * @return {!proto.yummies.HomeTodaysSpecialOffer} returns this
  */
-proto.yummies.HomeTodaysSpecialOffer.prototype.setDescription = function(value) {
+proto.yummies.HomeTodaysSpecialOffer.prototype.setImg = function(value) {
   return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
 /**
- * optional HomeMoney price = 3;
+ * optional string description = 3;
+ * @return {string}
+ */
+proto.yummies.HomeTodaysSpecialOffer.prototype.getDescription = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.yummies.HomeTodaysSpecialOffer} returns this
+ */
+proto.yummies.HomeTodaysSpecialOffer.prototype.setDescription = function(value) {
+  return jspb.Message.setProto3StringField(this, 3, value);
+};
+
+
+/**
+ * optional HomeMoney price = 4;
  * @return {?proto.yummies.HomeMoney}
  */
 proto.yummies.HomeTodaysSpecialOffer.prototype.getPrice = function() {
   return /** @type{?proto.yummies.HomeMoney} */ (
-    jspb.Message.getWrapperField(this, proto.yummies.HomeMoney, 3));
+    jspb.Message.getWrapperField(this, proto.yummies.HomeMoney, 4));
 };
 
 
@@ -736,7 +766,7 @@ proto.yummies.HomeTodaysSpecialOffer.prototype.getPrice = function() {
  * @return {!proto.yummies.HomeTodaysSpecialOffer} returns this
 */
 proto.yummies.HomeTodaysSpecialOffer.prototype.setPrice = function(value) {
-  return jspb.Message.setWrapperField(this, 3, value);
+  return jspb.Message.setWrapperField(this, 4, value);
 };
 
 
@@ -754,16 +784,16 @@ proto.yummies.HomeTodaysSpecialOffer.prototype.clearPrice = function() {
  * @return {boolean}
  */
 proto.yummies.HomeTodaysSpecialOffer.prototype.hasPrice = function() {
-  return jspb.Message.getField(this, 3) != null;
+  return jspb.Message.getField(this, 4) != null;
 };
 
 
 /**
- * optional float discount = 4;
+ * optional float discount = 5;
  * @return {number}
  */
 proto.yummies.HomeTodaysSpecialOffer.prototype.getDiscount = function() {
-  return /** @type {number} */ (jspb.Message.getFloatingPointFieldWithDefault(this, 4, 0.0));
+  return /** @type {number} */ (jspb.Message.getFloatingPointFieldWithDefault(this, 5, 0.0));
 };
 
 
@@ -772,17 +802,17 @@ proto.yummies.HomeTodaysSpecialOffer.prototype.getDiscount = function() {
  * @return {!proto.yummies.HomeTodaysSpecialOffer} returns this
  */
 proto.yummies.HomeTodaysSpecialOffer.prototype.setDiscount = function(value) {
-  return jspb.Message.setProto3FloatField(this, 4, value);
+  return jspb.Message.setProto3FloatField(this, 5, value);
 };
 
 
 /**
- * optional HomeMoney price_discounted = 5;
+ * optional HomeMoney price_discounted = 6;
  * @return {?proto.yummies.HomeMoney}
  */
 proto.yummies.HomeTodaysSpecialOffer.prototype.getPriceDiscounted = function() {
   return /** @type{?proto.yummies.HomeMoney} */ (
-    jspb.Message.getWrapperField(this, proto.yummies.HomeMoney, 5));
+    jspb.Message.getWrapperField(this, proto.yummies.HomeMoney, 6));
 };
 
 
@@ -791,7 +821,7 @@ proto.yummies.HomeTodaysSpecialOffer.prototype.getPriceDiscounted = function() {
  * @return {!proto.yummies.HomeTodaysSpecialOffer} returns this
 */
 proto.yummies.HomeTodaysSpecialOffer.prototype.setPriceDiscounted = function(value) {
-  return jspb.Message.setWrapperField(this, 5, value);
+  return jspb.Message.setWrapperField(this, 6, value);
 };
 
 
@@ -809,7 +839,7 @@ proto.yummies.HomeTodaysSpecialOffer.prototype.clearPriceDiscounted = function()
  * @return {boolean}
  */
 proto.yummies.HomeTodaysSpecialOffer.prototype.hasPriceDiscounted = function() {
-  return jspb.Message.getField(this, 5) != null;
+  return jspb.Message.getField(this, 6) != null;
 };
 
 
@@ -846,8 +876,9 @@ proto.yummies.HomePopularNow.prototype.toObject = function(opt_includeInstance) 
 proto.yummies.HomePopularNow.toObject = function(includeInstance, msg) {
   var f, obj = {
     name: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    img: jspb.Message.getFieldWithDefault(msg, 2, ""),
     price: (f = msg.getPrice()) && proto.yummies.HomeMoney.toObject(includeInstance, f),
-    isFavorite: jspb.Message.getBooleanFieldWithDefault(msg, 3, false)
+    isFavorite: jspb.Message.getBooleanFieldWithDefault(msg, 4, false)
   };
 
   if (includeInstance) {
@@ -889,11 +920,15 @@ proto.yummies.HomePopularNow.deserializeBinaryFromReader = function(msg, reader)
       msg.setName(value);
       break;
     case 2:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setImg(value);
+      break;
+    case 3:
       var value = new proto.yummies.HomeMoney;
       reader.readMessage(value,proto.yummies.HomeMoney.deserializeBinaryFromReader);
       msg.setPrice(value);
       break;
-    case 3:
+    case 4:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setIsFavorite(value);
       break;
@@ -933,10 +968,17 @@ proto.yummies.HomePopularNow.serializeBinaryToWriter = function(message, writer)
       f
     );
   }
+  f = message.getImg();
+  if (f.length > 0) {
+    writer.writeString(
+      2,
+      f
+    );
+  }
   f = message.getPrice();
   if (f != null) {
     writer.writeMessage(
-      2,
+      3,
       f,
       proto.yummies.HomeMoney.serializeBinaryToWriter
     );
@@ -944,7 +986,7 @@ proto.yummies.HomePopularNow.serializeBinaryToWriter = function(message, writer)
   f = message.getIsFavorite();
   if (f) {
     writer.writeBool(
-      3,
+      4,
       f
     );
   }
@@ -970,12 +1012,30 @@ proto.yummies.HomePopularNow.prototype.setName = function(value) {
 
 
 /**
- * optional HomeMoney price = 2;
+ * optional string img = 2;
+ * @return {string}
+ */
+proto.yummies.HomePopularNow.prototype.getImg = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.yummies.HomePopularNow} returns this
+ */
+proto.yummies.HomePopularNow.prototype.setImg = function(value) {
+  return jspb.Message.setProto3StringField(this, 2, value);
+};
+
+
+/**
+ * optional HomeMoney price = 3;
  * @return {?proto.yummies.HomeMoney}
  */
 proto.yummies.HomePopularNow.prototype.getPrice = function() {
   return /** @type{?proto.yummies.HomeMoney} */ (
-    jspb.Message.getWrapperField(this, proto.yummies.HomeMoney, 2));
+    jspb.Message.getWrapperField(this, proto.yummies.HomeMoney, 3));
 };
 
 
@@ -984,7 +1044,7 @@ proto.yummies.HomePopularNow.prototype.getPrice = function() {
  * @return {!proto.yummies.HomePopularNow} returns this
 */
 proto.yummies.HomePopularNow.prototype.setPrice = function(value) {
-  return jspb.Message.setWrapperField(this, 2, value);
+  return jspb.Message.setWrapperField(this, 3, value);
 };
 
 
@@ -1002,16 +1062,16 @@ proto.yummies.HomePopularNow.prototype.clearPrice = function() {
  * @return {boolean}
  */
 proto.yummies.HomePopularNow.prototype.hasPrice = function() {
-  return jspb.Message.getField(this, 2) != null;
+  return jspb.Message.getField(this, 3) != null;
 };
 
 
 /**
- * optional bool is_favorite = 3;
+ * optional bool is_favorite = 4;
  * @return {boolean}
  */
 proto.yummies.HomePopularNow.prototype.getIsFavorite = function() {
-  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 3, false));
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 4, false));
 };
 
 
@@ -1020,7 +1080,7 @@ proto.yummies.HomePopularNow.prototype.getIsFavorite = function() {
  * @return {!proto.yummies.HomePopularNow} returns this
  */
 proto.yummies.HomePopularNow.prototype.setIsFavorite = function(value) {
-  return jspb.Message.setProto3BooleanField(this, 3, value);
+  return jspb.Message.setProto3BooleanField(this, 4, value);
 };
 
 

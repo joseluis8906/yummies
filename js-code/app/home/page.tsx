@@ -1,26 +1,27 @@
-import { HomeServiceClient } from "../../pb/HomeServiceClientPb"
-import { HomeRequest, HomeResponse } from "../../pb/home_pb";
+import { HomeServiceClient } from "@/pb/HomeServiceClientPb";
+import { HomeRequest, HomeTodaysSpecialOffer, HomePopularNow, HomeMoney } from "@/pb/home_pb";
 
-export default function Home() {
-    var client = new HomeServiceClient('http://localhost:8080')
-    const headers = { /* "x-auth-email": "john.doe@example.com" */ }
-    var req = new HomeRequest()
-    req.setCustomer('john.doe@example.com')
-    client.home(req, headers, (err: Error, res: HomeResponse) => {
-        if (err != null) {
-            console.log(`calling home: ${err.message}`);
-            return
-        }
+async function getData() {
+    const client = new HomeServiceClient('http://localhost:8080');
+    const headers = { "x-auth-email": "john.doe@example.com" }
+    const req = new HomeRequest();
+    req.setCustomer('john.doe@example.com');
+    const res = await client.home(req, headers);
+    return { categories: res.getCategoriesList(), todaysSpecialOffer: res.getTodaysSpecialOffer(), popularNow: res.getPopularNowList() }
+}
 
-        console.log(res.toObject().popularNowList);
-    })
-
+export default async function Home() {
+    const data = await getData();
     return (
         <div className="w-full h-full">
             <AppBar></AppBar>
-            <Content></Content>
+            <Content
+                categories={data.categories}
+                todaysSpecialOffer={data.todaysSpecialOffer}
+                popularNow={data.popularNow} >
+            </Content>
             <BottomBar></BottomBar>
-        </div>
+        </div >
     )
 }
 
@@ -72,15 +73,21 @@ function AppBar() {
     )
 }
 
-function Content() {
-    // today's special offer
-    let burgerComboImg = "burger-combo.webp";
+function toFloat(price: HomeMoney | undefined): number {
+    if (price == undefined) {
+        return 0.0
+    }
+    const divisor = 10 ** price.getDecimals()
+    return price.getAmount() / divisor
+}
 
-    // popular now
-    let beefSaladImg = "beef-salad.webp";
-    let spicyNoodlesImg = "spicy-noodles.webp";
-    let lasagnaImg = "lasagna.webp";
+interface Props {
+    categories: Array<string> | undefined;
+    todaysSpecialOffer: HomeTodaysSpecialOffer | undefined;
+    popularNow: Array<HomePopularNow> | undefined;
+}
 
+function Content({ categories, todaysSpecialOffer, popularNow }: Props) {
     return (
         <div className="container mx-auto">
             <div className="max-w-[430px] mx-auto w-full h-full pt-60 pb-16 overflow-hidden">
@@ -88,24 +95,15 @@ function Content() {
                     {/*categories*/}
                     <div className="w-full overflow-x-clip">
                         <div className="flex flex-nowrap px-4 gap-2 mx-auto my-2 rounded-lg overflow-x-auto no-scrollbar" role="group">
-                            <button type="button" className="px-5 py-1.5 text-xs font-medium dark:bg-ctp-surface0 dark:hover:bg-ctp-peach dark:text-ctp-text dark:hover:text-ctp-base rounded-lg text-nowrap">
-                                Meals
-                            </button>
-                            <button type="button" className="px-5 py-1.5 text-xs font-medium dark:bg-ctp-surface0 dark:hover:bg-ctp-peach dark:text-ctp-text dark:hover:text-ctp-base rounded-lg text-nowrap">
-                                Slides
-                            </button>
-                            <button type="button" className="px-5 py-1.5 text-xs font-medium dark:bg-ctp-surface0 dark:hover:bg-ctp-peach dark:text-ctp-text dark:hover:text-ctp-base rounded-lg text-nowrap">
-                                Snacks
-                            </button>
-                            <button type="button" className="px-5 py-1.5 text-xs font-medium dark:bg-ctp-surface0 dark:hover:bg-ctp-peach dark:text-ctp-text dark:hover:text-ctp-base rounded-lg text-nowrap">
-                                Drinks
-                            </button>
-                            <button type="button" className="px-5 py-1.5 text-xs font-medium dark:bg-ctp-surface0 dark:hover:bg-ctp-peach dark:text-ctp-text dark:hover:text-ctp-base rounded-lg text-nowrap">
-                                Healthy
-                            </button>
-                            <button type="button" className="px-5 py-1.5 text-xs font-medium dark:bg-ctp-surface0 dark:hover:bg-ctp-peach dark:text-ctp-text dark:hover:text-ctp-base rounded-lg text-nowrap">
-                                Fast Food
-                            </button>
+                            {categories?.map((category, key) =>
+                                <button
+                                    key={key}
+                                    type="button"
+                                    className="px-5 py-1.5 text-xs font-medium dark:bg-ctp-surface0 dark:hover:bg-ctp-peach dark:text-ctp-text dark:hover:text-ctp-base rounded-lg text-nowrap"
+                                >
+                                    {category}
+                                </button>
+                            )}
                         </div>
                     </div>
                     {/*--todays special offer--*/}
@@ -113,13 +111,13 @@ function Content() {
                         <h3 className="dark:text-ctp-text font-bold">Today's Special Offer</h3>
                         <div className="w-full mt-2 dark:bg-ctp-base rounded-lg flex flex-row overflow-hidden shadow-md shadow-ctp-crust">
                             <div className="basis-1/2">
-                                <img src={burgerComboImg} className="w-full h-full object-cover" />
+                                <img src={todaysSpecialOffer?.getImg()} className="w-full h-full object-cover" />
                             </div>
                             <div className="basis-1/2 content-center justify-center text-center p-2">
-                                <h4 className="text-md dark:text-ctp-text font-semibold text-center">Yummies Special Burguer</h4>
+                                <h4 className="text-md dark:text-ctp-text font-semibold text-center">{todaysSpecialOffer?.getName()}</h4>
                                 <span className="dark:text-ctp-text text-sm">Now</span>
-                                <h3 className="dark:text-ctp-text text-2xl font-bold">$2.50</h3>
-                                <span className="dark:text-ctp-red text-sm">(10% off)</span>
+                                <h3 className="dark:text-ctp-text text-2xl font-bold">${toFloat(todaysSpecialOffer?.getPrice()).toFixed(todaysSpecialOffer?.getPrice()?.getDecimals())}</h3>
+                                <span className="dark:text-ctp-red text-sm">({todaysSpecialOffer?.getDiscount()}% off)</span>
                                 <button type="button" className="font-medium rounded-lg text-sm px-5 py-2.5 text-center border dark:border-ctp-peach dark:text-ctp-peach dark:hover:text-ctp-base dark:hover:bg-ctp-peach block mx-auto mt-3">Add to Cart</button>
                             </div>
                         </div>
@@ -128,36 +126,24 @@ function Content() {
                     <div className="w-full p-4 mt-5 overflow-x-clip">
                         <h3 className="dark:text-ctp-text font-bold">Popular Now</h3>
                         <div className="flex flex-nowrap gap-3 mx-auto rounded-lg overflow-x-auto no-scrollbar py-2 pr-3">
-                            <div className="relative min-w-48 min-h-48 p-3 dark:bg-ctp-base rounded-lg text-center content-center shadow-md shadow-ctp-crust">
-                                <button type="button" className="absolute top-1 right-1">
-                                    <svg className="w-6 h-6 dark:text-ctp-peach" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="m12.75 20.66 6.184-7.098c2.677-2.884 2.559-6.506.754-8.705-.898-1.095-2.206-1.816-3.72-1.855-1.293-.034-2.652.43-3.963 1.442-1.315-1.012-2.678-1.476-3.973-1.442-1.515.04-2.825.76-3.724 1.855-1.806 2.201-1.915 5.823.772 8.706l6.183 7.097c.19.216.46.34.743.34a.985.985 0 0 0 .743-.34Z" />
-                                    </svg>
-                                </button>
-                                <img src={beefSaladImg} className="object-cover size-32 rounded-full mx-auto" />
-                                <h5 className="dark:text-ctp-text font-medium mt-1">Beef Salad</h5>
-                                <h3 className="dark:text-ctp-text text-lg font-bold">$4.25</h3>
-                            </div>
-                            <div className="relative min-w-48 min-h-48 p-3 dark:bg-ctp-base rounded-lg text-center content-center shadow-md shadow-ctp-crust">
-                                <button type="button" className="absolute top-1 right-1">
-                                    <svg className="w-6 h-6 dark:text-ctp-text" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                        <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12.01 6.001C6.5 1 1 8 5.782 13.001L12.011 20l6.23-7C23 8 17.5 1 12.01 6.002Z" />
-                                    </svg>
-                                </button>
-                                <img src={spicyNoodlesImg} className="object-cover size-32 rounded-full mx-auto" />
-                                <h5 className="dark:text-ctp-text font-medium mt-1">Spicy Noodles</h5>
-                                <h3 className="dark:text-ctp-text text-lg font-bold">$5.70</h3>
-                            </div>
-                            <div className="relative min-w-48 min-h-48 p-3 dark:bg-ctp-base rounded-lg text-center content-center shadow-md shadow-ctp-crust">
-                                <button type="button" className="absolute top-1 right-1">
-                                    <svg className="w-6 h-6 dark:text-ctp-text" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                        <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12.01 6.001C6.5 1 1 8 5.782 13.001L12.011 20l6.23-7C23 8 17.5 1 12.01 6.002Z" />
-                                    </svg>
-                                </button>
-                                <img src={lasagnaImg} className="object-cover size-32 rounded-full mx-auto" />
-                                <h5 className="dark:text-ctp-text font-medium mt-1">Lasagna</h5>
-                                <h3 className="dark:text-ctp-text text-lg font-bold">$6.30</h3>
-                            </div>
+                            {popularNow?.map((pn, key) =>
+                                <div key={key} className="relative min-w-48 min-h-48 p-3 dark:bg-ctp-base rounded-lg text-center content-center shadow-md shadow-ctp-crust">
+                                    <button type="button" className="absolute top-1 right-1">
+                                        {pn.getIsFavorite() ? (
+                                            <svg className="w-6 h-6 dark:text-ctp-peach" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="m12.75 20.66 6.184-7.098c2.677-2.884 2.559-6.506.754-8.705-.898-1.095-2.206-1.816-3.72-1.855-1.293-.034-2.652.43-3.963 1.442-1.315-1.012-2.678-1.476-3.973-1.442-1.515.04-2.825.76-3.724 1.855-1.806 2.201-1.915 5.823.772 8.706l6.183 7.097c.19.216.46.34.743.34a.985.985 0 0 0 .743-.34Z" />
+                                            </svg>
+                                        ) : (
+                                            <svg className="w-6 h-6 dark:text-ctp-text" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12.01 6.001C6.5 1 1 8 5.782 13.001L12.011 20l6.23-7C23 8 17.5 1 12.01 6.002Z" />
+                                            </svg>
+                                        )}
+                                    </button>
+                                    <img src={pn.getImg()} className="object-cover size-32 rounded-full mx-auto" />
+                                    <h5 className="dark:text-ctp-text font-medium mt-1">{pn.getName()}</h5>
+                                    <h3 className="dark:text-ctp-text text-lg font-bold">${toFloat(pn.getPrice()).toFixed(pn.getPrice()?.getDecimals())}</h3>
+                                </div>
+                            )}
                         </div>
                     </div>
                 </div>

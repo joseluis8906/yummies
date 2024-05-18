@@ -1,16 +1,19 @@
 - name: Beef Salad
+  img: beef-salad.webp
   price:
     amount: 425
     decimals: 2
     currency: USD
   is_favorite: true
 - name: Spicy Noodless
+  img: spicy-noodles.webp
   price:
     amount: 570
     decimals: 2
     currency: USD
   is_favorite: false
 - name: Lasagna
+  img: lasagna.webp
   price:
     amount: 630
     decimals: 2
