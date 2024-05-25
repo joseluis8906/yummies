@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package yummies;
+
+option go_package = "github.com/joseluis8906/yummies/go-code/delivery/pkg/pb";
+
+service MenuService {
+    rpc Index(MenuIndexRequest) returns (MenuIndexResponse);
+}
+
+message MenuIndexRequest {
+    string customer = 1;
+}
+
+message MenuIndexResponse {
+    repeated string categories = 1;
+    repeated MenuProduct products = 2;
+}
+
+message MenuProduct {
+   string name = 1;
+   string img = 2;
+   MenuMoney price = 3;
+   bool is_favorite = 4;
+}
+
+message MenuMoney {
+    uint64 amount = 1;
+    uint32 decimals = 2;
+    string currency = 3;
+}

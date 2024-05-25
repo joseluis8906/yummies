@@ -9,7 +9,6 @@ fi
 filename=$(basename -- "$1")
 collection="${filename%.*}"
 
-
 yq $1 -o json > /tmp/data.json
 isArray=$(cat /tmp/data.json | jq 'if type=="array" then "yes" else "no" end' | tr -d '"')
 

@@ -8,7 +8,7 @@
 // versions:
 // 	protoc-gen-grpc-web v1.5.0
 // 	protoc              v5.26.1
-// source: home.proto
+// source: menu.proto
 
 
 /* eslint-disable */
@@ -17,10 +17,10 @@
 
 import * as grpcWeb from 'grpc-web';
 
-import * as home_pb from './home_pb'; // proto import: "home.proto"
+import * as menu_pb from './menu_pb'; // proto import: "menu.proto"
 
 
-export class HomeServiceClient {
+export class MenuServiceClient {
   client_: grpcWeb.AbstractClientBase;
   hostname_: string;
   credentials_: null | { [index: string]: string; };
@@ -40,35 +40,35 @@ export class HomeServiceClient {
   }
 
   methodDescriptorIndex = new grpcWeb.MethodDescriptor(
-    '/yummies.HomeService/Index',
+    '/yummies.MenuService/Index',
     grpcWeb.MethodType.UNARY,
-    home_pb.HomeIndexRequest,
-    home_pb.HomeIndexResponse,
-    (request: home_pb.HomeIndexRequest) => {
+    menu_pb.MenuIndexRequest,
+    menu_pb.MenuIndexResponse,
+    (request: menu_pb.MenuIndexRequest) => {
       return request.serializeBinary();
     },
-    home_pb.HomeIndexResponse.deserializeBinary
+    menu_pb.MenuIndexResponse.deserializeBinary
   );
 
   index(
-    request: home_pb.HomeIndexRequest,
-    metadata?: grpcWeb.Metadata | null): Promise<home_pb.HomeIndexResponse>;
+    request: menu_pb.MenuIndexRequest,
+    metadata?: grpcWeb.Metadata | null): Promise<menu_pb.MenuIndexResponse>;
 
   index(
-    request: home_pb.HomeIndexRequest,
+    request: menu_pb.MenuIndexRequest,
     metadata: grpcWeb.Metadata | null,
     callback: (err: grpcWeb.RpcError,
-               response: home_pb.HomeIndexResponse) => void): grpcWeb.ClientReadableStream<home_pb.HomeIndexResponse>;
+               response: menu_pb.MenuIndexResponse) => void): grpcWeb.ClientReadableStream<menu_pb.MenuIndexResponse>;
 
   index(
-    request: home_pb.HomeIndexRequest,
+    request: menu_pb.MenuIndexRequest,
     metadata?: grpcWeb.Metadata | null,
     callback?: (err: grpcWeb.RpcError,
-               response: home_pb.HomeIndexResponse) => void) {
+               response: menu_pb.MenuIndexResponse) => void) {
     if (callback !== undefined) {
       return this.client_.rpcCall(
         this.hostname_ +
-          '/yummies.HomeService/Index',
+          '/yummies.MenuService/Index',
         request,
         metadata || {},
         this.methodDescriptorIndex,
@@ -76,7 +76,7 @@ export class HomeServiceClient {
     }
     return this.client_.unaryCall(
     this.hostname_ +
-      '/yummies.HomeService/Index',
+      '/yummies.MenuService/Index',
     request,
     metadata || {},
     this.methodDescriptorIndex);

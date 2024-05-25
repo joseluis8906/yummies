@@ -2,49 +2,49 @@ import * as jspb from 'google-protobuf'
 
 
 
-export class HomeRequest extends jspb.Message {
+export class HomeIndexRequest extends jspb.Message {
   getCustomer(): string;
-  setCustomer(value: string): HomeRequest;
+  setCustomer(value: string): HomeIndexRequest;
 
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): HomeRequest.AsObject;
-  static toObject(includeInstance: boolean, msg: HomeRequest): HomeRequest.AsObject;
-  static serializeBinaryToWriter(message: HomeRequest, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): HomeRequest;
-  static deserializeBinaryFromReader(message: HomeRequest, reader: jspb.BinaryReader): HomeRequest;
+  toObject(includeInstance?: boolean): HomeIndexRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: HomeIndexRequest): HomeIndexRequest.AsObject;
+  static serializeBinaryToWriter(message: HomeIndexRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): HomeIndexRequest;
+  static deserializeBinaryFromReader(message: HomeIndexRequest, reader: jspb.BinaryReader): HomeIndexRequest;
 }
 
-export namespace HomeRequest {
+export namespace HomeIndexRequest {
   export type AsObject = {
     customer: string,
   }
 }
 
-export class HomeResponse extends jspb.Message {
+export class HomeIndexResponse extends jspb.Message {
   getCategoriesList(): Array<string>;
-  setCategoriesList(value: Array<string>): HomeResponse;
-  clearCategoriesList(): HomeResponse;
-  addCategories(value: string, index?: number): HomeResponse;
+  setCategoriesList(value: Array<string>): HomeIndexResponse;
+  clearCategoriesList(): HomeIndexResponse;
+  addCategories(value: string, index?: number): HomeIndexResponse;
 
   getTodaysSpecialOffer(): HomeTodaysSpecialOffer | undefined;
-  setTodaysSpecialOffer(value?: HomeTodaysSpecialOffer): HomeResponse;
+  setTodaysSpecialOffer(value?: HomeTodaysSpecialOffer): HomeIndexResponse;
   hasTodaysSpecialOffer(): boolean;
-  clearTodaysSpecialOffer(): HomeResponse;
+  clearTodaysSpecialOffer(): HomeIndexResponse;
 
   getPopularNowList(): Array<HomePopularNow>;
-  setPopularNowList(value: Array<HomePopularNow>): HomeResponse;
-  clearPopularNowList(): HomeResponse;
+  setPopularNowList(value: Array<HomePopularNow>): HomeIndexResponse;
+  clearPopularNowList(): HomeIndexResponse;
   addPopularNow(value?: HomePopularNow, index?: number): HomePopularNow;
 
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): HomeResponse.AsObject;
-  static toObject(includeInstance: boolean, msg: HomeResponse): HomeResponse.AsObject;
-  static serializeBinaryToWriter(message: HomeResponse, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): HomeResponse;
-  static deserializeBinaryFromReader(message: HomeResponse, reader: jspb.BinaryReader): HomeResponse;
+  toObject(includeInstance?: boolean): HomeIndexResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: HomeIndexResponse): HomeIndexResponse.AsObject;
+  static serializeBinaryToWriter(message: HomeIndexResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): HomeIndexResponse;
+  static deserializeBinaryFromReader(message: HomeIndexResponse, reader: jspb.BinaryReader): HomeIndexResponse;
 }
 
-export namespace HomeResponse {
+export namespace HomeIndexResponse {
   export type AsObject = {
     categoriesList: Array<string>,
     todaysSpecialOffer?: HomeTodaysSpecialOffer.AsObject,

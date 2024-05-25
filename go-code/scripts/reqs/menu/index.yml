@@ -1,0 +1,6 @@
+proto: menu.proto
+method: yummies.MenuService/Index
+metadata:
+  x-auth-email: john.doe@example.com
+request:
+  customer: john.doe@example.com

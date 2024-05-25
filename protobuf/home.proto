@@ -8,14 +8,14 @@ package yummies;
 option go_package = "github.com/joseluis8906/yummies/go-code/delivery/pkg/pb";
 
 service HomeService {
-    rpc Home(HomeRequest) returns (HomeResponse);
+    rpc Index(HomeIndexRequest) returns (HomeIndexResponse);
 }
 
-message HomeRequest {
+message HomeIndexRequest {
     string customer = 1;
 }
 
-message HomeResponse {
+message HomeIndexResponse {
     repeated string categories = 1;
     HomeTodaysSpecialOffer todays_special_offer = 2;
     repeated HomePopularNow popular_now = 3;

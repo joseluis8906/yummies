@@ -19,14 +19,14 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	HomeService_Home_FullMethodName = "/yummies.HomeService/Home"
+	HomeService_Index_FullMethodName = "/yummies.HomeService/Index"
 )
 
 // HomeServiceClient is the client API for HomeService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type HomeServiceClient interface {
-	Home(ctx context.Context, in *HomeRequest, opts ...grpc.CallOption) (*HomeResponse, error)
+	Index(ctx context.Context, in *HomeIndexRequest, opts ...grpc.CallOption) (*HomeIndexResponse, error)
 }
 
 type homeServiceClient struct {
@@ -37,9 +37,9 @@ func NewHomeServiceClient(cc grpc.ClientConnInterface) HomeServiceClient {
 	return &homeServiceClient{cc}
 }
 
-func (c *homeServiceClient) Home(ctx context.Context, in *HomeRequest, opts ...grpc.CallOption) (*HomeResponse, error) {
-	out := new(HomeResponse)
-	err := c.cc.Invoke(ctx, HomeService_Home_FullMethodName, in, out, opts...)
+func (c *homeServiceClient) Index(ctx context.Context, in *HomeIndexRequest, opts ...grpc.CallOption) (*HomeIndexResponse, error) {
+	out := new(HomeIndexResponse)
+	err := c.cc.Invoke(ctx, HomeService_Index_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -50,7 +50,7 @@ func (c *homeServiceClient) Home(ctx context.Context, in *HomeRequest, opts ...g
 // All implementations must embed UnimplementedHomeServiceServer
 // for forward compatibility
 type HomeServiceServer interface {
-	Home(context.Context, *HomeRequest) (*HomeResponse, error)
+	Index(context.Context, *HomeIndexRequest) (*HomeIndexResponse, error)
 	mustEmbedUnimplementedHomeServiceServer()
 }
 
@@ -58,8 +58,8 @@ type HomeServiceServer interface {
 type UnimplementedHomeServiceServer struct {
 }
 
-func (UnimplementedHomeServiceServer) Home(context.Context, *HomeRequest) (*HomeResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Home not implemented")
+func (UnimplementedHomeServiceServer) Index(context.Context, *HomeIndexRequest) (*HomeIndexResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Index not implemented")
 }
 func (UnimplementedHomeServiceServer) mustEmbedUnimplementedHomeServiceServer() {}
 
@@ -74,20 +74,20 @@ func RegisterHomeServiceServer(s grpc.ServiceRegistrar, srv HomeServiceServer) {
 	s.RegisterService(&HomeService_ServiceDesc, srv)
 }
 
-func _HomeService_Home_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HomeRequest)
+func _HomeService_Index_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HomeIndexRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(HomeServiceServer).Home(ctx, in)
+		return srv.(HomeServiceServer).Index(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: HomeService_Home_FullMethodName,
+		FullMethod: HomeService_Index_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HomeServiceServer).Home(ctx, req.(*HomeRequest))
+		return srv.(HomeServiceServer).Index(ctx, req.(*HomeIndexRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -100,8 +100,8 @@ var HomeService_ServiceDesc = grpc.ServiceDesc{
 	HandlerType: (*HomeServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "Home",
-			Handler:    _HomeService_Home_Handler,
+			MethodName: "Index",
+			Handler:    _HomeService_Index_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

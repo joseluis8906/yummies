@@ -1,33 +1,63 @@
-- ref: BUR-CLA-FRI-COK
-  name: Burger Classic Fries Coke
-  price: 5.50
-  raiting: 4.5
-  description: >
-    Classic beef burger, grilled to perfection and served on a freshly toasted sesame seed bun. 
-    Topped with crisp lettuce, juicy tomato slices, tangy pickles, and savory melted cheese. 
-    Customize it with your choice of condiments':' ketchup, mustard, and mayo.
-- ref: SAL-BEE-LET-SAU  
-  name: Beef Salad 
-  price: 4.25
-  raiting: 4.0
-  description: >
-    Grilled beef strips with crisp lettuce, juicy tomatoes, cucumber slices, and tangy red onions, 
-    tossed in zesty vinaigrette dressing. Topped with toasted nuts and feta cheese, a perfect 
-    blend of freshness and savory goodness.
-- ref: NOO-CHI-SPI-VEG
-  name: Spicy Noodles 
-  price: 5.70
-  raiting: 3.5
-  description: >
-    These mouthwatering noodles pack a punch with a fiery blend of spices that will leave your 
-    taste buds tingling. Cooked to perfection and tossed in a flavorful spicy sauce, our noodles 
-    are paired with fresh veggies and your choice of protein (chicken/tofu/shrimp) for a 
-    satisfying meal that's both spicy and delicious.
-- ref: LAS-MEA-RIC-MAR
-  name: Lasagna 
-  price: 6.30
-  raiting: 5.0
-  description: >
-    Comforting layers of pasta generously filled with flavorful seasoned ground beef, creamy 
-    ricotta cheese, and robust marinara sauce. Each bite delivers a satisfying medley of 
-    textures and tastes, perfectly complemented by the gooey melted mozzarella cheese on top.
+- name: Beef Salad
+  img: beef-salad.webp
+  price:
+    amount: 425
+    decimals: 2
+    currency: USD
+  is_favorite: true
+- name: Spicy Noodless
+  img: spicy-noodles.webp
+  price:
+    amount: 570
+    decimals: 2
+    currency: USD
+  is_favorite: false
+- name: Lasagna
+  img: lasagna.webp
+  price:
+    amount: 630
+    decimals: 2
+    currency: USD
+  is_favorite: false
+- name: Shrimp Pasta
+  img: shrimp-pasta.webp
+  price:
+    amount: 715
+    decimals: 2
+    currency: USD
+  is_favorite: true 
+- name: Shrimp Pasta
+  img: shrimp-pasta.webp
+  price:
+    amount: 715
+    decimals: 2
+    currency: USD
+  is_favorite: true 
+- name: Chess Burger
+  img: burger-combo.webp
+  price: 
+    amount: 425
+    decimals: 2
+    currency: USD
+  is_favorite: true
+- name: Hot Dog
+  img: hot-dog.webp
+  price: 
+    amount: 270
+    decimals: 2
+    currency: USD
+  is_favorite: true
+- name: Cordon Bleu 
+  img: hot-dog.webp
+  price: 
+    amount: 970
+    decimals: 2
+    currency: USD
+  is_favorite: false
+- name: Chinese Rice 
+  img: chinese-rice.webp
+  price: 
+    amount: 760
+    decimals: 2
+    currency: USD
+  is_favorite: false

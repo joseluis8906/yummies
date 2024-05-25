@@ -1,4 +1,5 @@
-method: HomeService.Home
+proto: home.proto
+method: yummies.HomeService/Index
 metadata:
   x-auth-email: john.doe@example.com
 request:

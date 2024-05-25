@@ -30,73 +30,21 @@ type (
 		Log  *log.Logger
 		DB   *mongo.Database
 	}
-
-	Category struct {
-		Name string `bson:"name"`
-	}
-
-	TodaysSpecialOffer struct {
-		Name     string  `bson:"name"`
-		Img      string  `bson:"img"`
-		Price    Money   `bson:"price"`
-		Discount float32 `bson:"discount"`
-	}
-
-	PopularNow struct {
-		Name       string `bson:"name"`
-		Img        string `bson:"img"`
-		Price      Money  `bson:"price"`
-		IsFavorite bool   `bson:"is_favorite"`
-	}
-
-	Money struct {
-		Amount   uint64 `bson:"amount"`
-		Decimals uint8  `bson:"decimals"`
-		Currency string `bson:"currency"`
-	}
 )
 
-func (m Money) PB() *pb.HomeMoney {
-	return &pb.HomeMoney{
-		Amount:   m.Amount,
-		Decimals: uint32(m.Decimals),
-		Currency: m.Currency,
-	}
-}
-
-func (tso TodaysSpecialOffer) PB() *pb.HomeTodaysSpecialOffer {
-	return &pb.HomeTodaysSpecialOffer{
-		Name:     tso.Name,
-		Img:      tso.Img,
-		Price:    tso.Price.PB(),
-		Discount: tso.Discount,
-	}
-}
-
-func (pn PopularNow) PB() *pb.HomePopularNow {
-	return &pb.HomePopularNow{
-		Name:       pn.Name,
-		Img:        pn.Img,
-		Price:      pn.Price.PB(),
-		IsFavorite: pn.IsFavorite,
-	}
-}
-
 func New(deps Deps) *Service {
-	s := &Service{
+	return &Service{
 		Nats: deps.Nats,
 		Log:  deps.Log,
 		DB:   deps.DB.Database("yummies"),
 	}
-
-	return s
 }
 
-func (s *Service) Home(ctx context.Context, req *pb.HomeRequest) (*pb.HomeResponse, error) {
-	ctx, span := otel.Tracer("").Start(ctx, "HomeService.Home")
+func (s *Service) Index(ctx context.Context, req *pb.HomeIndexRequest) (*pb.HomeIndexResponse, error) {
+	ctx, span := otel.Tracer("").Start(ctx, "yummies.HomeService.Index")
 	defer span.End()
 
-	_, err := grpc.Header(ctx, authEmail).ExpectOne()
+	_, err := grpc.Header(ctx, authEmail)
 	if err != nil {
 		s.Log.Printf("getting x-auth-email: %q", err)
 		return nil, fmt.Errorf("getting x-auth-email header: %w", err)
@@ -141,7 +89,7 @@ func (s *Service) Home(ctx context.Context, req *pb.HomeRequest) (*pb.HomeRespon
 		popularNow[i] = v.PB()
 	}
 
-	res := &pb.HomeResponse{
+	res := &pb.HomeIndexResponse{
 		Categories:         categories,
 		TodaysSpecialOffer: todaysSpecialOffer,
 		PopularNow:         popularNow,

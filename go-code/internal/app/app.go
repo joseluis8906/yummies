@@ -12,6 +12,7 @@ import (
 
 	logl "github.com/joseluis8906/yummies/go-code/internal/app/log"
 	"github.com/joseluis8906/yummies/go-code/internal/home"
+	"github.com/joseluis8906/yummies/go-code/internal/menu"
 
 	"github.com/spf13/viper"
 	"go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc"
@@ -20,16 +21,15 @@ import (
 	"go.opentelemetry.io/otel/sdk/trace"
 	"go.uber.org/fx"
 	"google.golang.org/grpc"
-	"google.golang.org/grpc/reflection"
 )
 
 type (
 	Deps struct {
 		fx.In
-
 		Config      *viper.Viper
 		Log         *log.Logger
 		HomeService *home.Service
+		MenuService *menu.Service
 	}
 )
 
@@ -53,7 +53,7 @@ func NewGRPCServer(lc fx.Lifecycle, deps Deps) *grpc.Server {
 
 			grpcServer = grpc.NewServer(grpc.StatsHandler(otelgrpc.NewServerHandler()))
 			pb.RegisterHomeServiceServer(grpcServer, deps.HomeService)
-			reflection.Register(grpcServer)
+			pb.RegisterMenuServiceServer(grpcServer, deps.MenuService)
 			go func() {
 				err := grpcServer.Serve(lis)
 				if err != nil {
