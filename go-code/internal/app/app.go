@@ -10,8 +10,8 @@ import (
 	"github.com/joseluis8906/yummies/go-code/pkg/pb"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 
-	logl "github.com/joseluis8906/yummies/go-code/internal/app/log"
 	"github.com/joseluis8906/yummies/go-code/internal/home"
+	loglevel "github.com/joseluis8906/yummies/go-code/internal/log"
 	"github.com/joseluis8906/yummies/go-code/internal/menu"
 
 	"github.com/spf13/viper"
@@ -57,7 +57,7 @@ func NewGRPCServer(lc fx.Lifecycle, deps Deps) *grpc.Server {
 			go func() {
 				err := grpcServer.Serve(lis)
 				if err != nil {
-					deps.Log.Printf(logl.Error("starting grpc server: %v"), err)
+					deps.Log.Printf(loglevel.Error("starting grpc server: %v"), err)
 				}
 			}()
 
