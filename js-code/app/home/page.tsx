@@ -1,12 +1,12 @@
 import { HomeServiceClient } from "@/pb/HomeServiceClientPb";
-import { HomeRequest, HomeTodaysSpecialOffer, HomePopularNow, HomeMoney } from "@/pb/home_pb";
+import { HomeIndexRequest, HomeTodaysSpecialOffer, HomePopularNow, HomeMoney } from "@/pb/home_pb";
 
 async function getData() {
     const client = new HomeServiceClient('http://localhost:8080');
     const headers = { "x-auth-email": "john.doe@example.com" }
-    const req = new HomeRequest();
+    const req = new HomeIndexRequest();
     req.setCustomer('john.doe@example.com');
-    const res = await client.home(req, headers);
+    const res = await client.index(req, headers);
     return { categories: res.getCategoriesList(), todaysSpecialOffer: res.getTodaysSpecialOffer(), popularNow: res.getPopularNowList() }
 }
 
