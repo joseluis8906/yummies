@@ -35,8 +35,8 @@ var (
 )
 
 func init() {
-	reLevel = regexp.MustCompile(`^(?P<app>\w+) (?P<date>[0-9]{4}\/[0-9]{2}\/[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}) (?P<line>src\/[\w+\/]+\.\w+:[0-9]+): (?P<level>INFO|ERROR) (?P<msg>.*)\n$`)
-	reNoLevel = regexp.MustCompile(`^(?P<app>\w+) (?P<date>[0-9]{4}\/[0-9]{2}\/[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}) (?P<line>src\/[\w+\/]+\.\w+:[0-9]+): (?P<msg>.*)\n$`)
+	reLevel = regexp.MustCompile(`^(?P<app>\w+) (?P<date>[0-9]{4}\/[0-9]{2}\/[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}) (?P<line>\/[\w+-\/]+\.\w+:[0-9]+): (?P<level>INFO|ERROR) (?P<msg>.*)\n$`)
+	reNoLevel = regexp.MustCompile(`^(?P<app>\w+) (?P<date>[0-9]{4}\/[0-9]{2}\/[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}) (?P<line>\/[\w+-\/]+\.\w+:[0-9]+): (?P<msg>.*)\n$`)
 }
 
 func (l *Logger) Write(data []byte) (int, error) {

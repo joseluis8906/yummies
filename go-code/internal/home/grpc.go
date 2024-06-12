@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 
+	loglevel "github.com/joseluis8906/yummies/go-code/internal/log"
 	"github.com/joseluis8906/yummies/go-code/pkg/grpc"
 	"github.com/joseluis8906/yummies/go-code/pkg/pb"
 	"github.com/nats-io/nats.go"
@@ -44,8 +45,7 @@ func New(deps Deps) *Service {
 }
 
 func (s *Service) Index(ctx context.Context, req *pb.HomeIndexRequest) (*pb.HomeIndexResponse, error) {
-	ctx, span := otel.Tracer("").Start(ctx, "yummies.HomeService.Index")
-	defer span.End()
+	s.Log.Printf(loglevel.Info("calling yummies HomeService Index"))
 	_, err := grpc.Header(ctx, authEmail)
 	if err != nil {
 		s.Log.Printf("getting x-auth-email: %q", err)
@@ -60,13 +60,15 @@ func (s *Service) Index(ctx context.Context, req *pb.HomeIndexRequest) (*pb.Home
 		span.AddEvent("get categories", trace.WithAttributes(attribute.String("query", "db.home.categories.find({})")))
 		cur, err := s.DB.Collection("home.categories").Find(ctx, bson.D{})
 		if err != nil {
-			return err
+			s.Log.Printf("getting categories: %v", err)
+			return fmt.Errorf("getting categories: %v", err)
 		}
 
 		var dbCategories []Category
 		err = cur.All(ctx, &dbCategories)
 		if err != nil {
-			return err
+			s.Log.Printf("parsing categories: %v", err)
+			return fmt.Errorf("parsing categories: %v", err)
 		}
 
 		categories := make([]string, len(dbCategories))
@@ -85,7 +87,8 @@ func (s *Service) Index(ctx context.Context, req *pb.HomeIndexRequest) (*pb.Home
 		span.AddEvent("get todaysspecialoffer", trace.WithAttributes(attribute.String("query", "db.home.todaysspecialoffer.findOne({})")))
 		err = s.DB.Collection("home.todaysspecialoffer").FindOne(ctx, bson.D{}).Decode(&dbTso)
 		if err != nil {
-			return err
+			s.Log.Printf("getting todaysspecialoffer: %v", err)
+			return fmt.Errorf("getting todaysspecialoffer: %v", err)
 		}
 
 		todaysSpecialOffer = dbTso.PB()
@@ -99,13 +102,15 @@ func (s *Service) Index(ctx context.Context, req *pb.HomeIndexRequest) (*pb.Home
 		span.AddEvent("get popularnow", trace.WithAttributes(attribute.String("query", "db.home.popularnow.find({})")))
 		cur, err := s.DB.Collection("home.popularnow").Find(ctx, bson.D{})
 		if err != nil {
-			return err
+			s.Log.Printf("getting popularnow: %v", err)
+			return fmt.Errorf("getting popularnow: %v", err)
 		}
 
 		var dbPn []PopularNow
 		err = cur.All(ctx, &dbPn)
 		if err != nil {
-			return err
+			s.Log.Printf("parssing popularnow: %v", err)
+			return fmt.Errorf("parsing popularnow: %v", err)
 		}
 
 		popularNow = make([]*pb.HomePopularNow, len(dbPn))
@@ -123,5 +128,6 @@ func (s *Service) Index(ctx context.Context, req *pb.HomeIndexRequest) (*pb.Home
 		PopularNow:         popularNow,
 	}
 
+	s.Log.Printf("leaving yummies HomeService Index")
 	return res, nil
 }

@@ -5,7 +5,6 @@ PROJECT_NAME = yummies
 build: 
 	@go build -ldflags "-s -w" -o bin/release/$(PROJECT_NAME) cmd/$(PROJECT_NAME)/main.go
 
-
 .PHONY: test
 test:
 	@go test -cov ./...
@@ -16,5 +15,5 @@ run:
 
 .PHONY: debug
 debug:
-	@go build -gcflags=all="-N -l" -o ./bin/debug/$(PROJECT_NAME) cmd/$(PROJECT_NAME)/main.go
-	@dlv debug --headless --listen=:2345 --api-version=2 -- ./bin/debug/$(PROJECT_NAME)
+	@go build -gcflags=all="-N -l" -o ./bin/debug/$(PROJECT_NAME) ./cmd/$(PROJECT_NAME)/main.go
+	@CONFIG_URL="http://yummies.local:2379" dlv exec --headless --listen=:2345 --api-version=2 -- ./bin/debug/$(PROJECT_NAME)
