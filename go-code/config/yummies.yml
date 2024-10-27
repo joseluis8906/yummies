@@ -11,6 +11,8 @@ fluentd:
 grpc:
   port: 50051
 nats:
-  url: "nats://yummies.local:4222"
+  url: 'nats://yummies.local:4222'
 mongodb:
-  uri: "mongodb://yummies:yummies@yummies.local:27017/yummies?authMechanism=PLAIN"
+  uri: 'mongodb://yummies:yummies@yummies.local:27017/yummies?authMechanism=PLAIN'
+http:
+  addr: '0.0.0.0:9090'

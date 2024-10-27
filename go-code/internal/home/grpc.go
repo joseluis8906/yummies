@@ -4,10 +4,13 @@ import (
 	"context"
 	"fmt"
 	"log"
+	"time"
 
-	loglevel "github.com/joseluis8906/yummies/go-code/internal/log"
 	"github.com/joseluis8906/yummies/go-code/pkg/grpc"
+	loglevel "github.com/joseluis8906/yummies/go-code/pkg/log"
 	"github.com/joseluis8906/yummies/go-code/pkg/pb"
+
+	"github.com/google/uuid"
 	"github.com/nats-io/nats.go"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
@@ -16,6 +19,7 @@ import (
 	"go.opentelemetry.io/otel/trace"
 	"go.uber.org/fx"
 	"golang.org/x/sync/errgroup"
+	"google.golang.org/protobuf/proto"
 )
 
 const authEmail string = "x-auth-email"
@@ -37,11 +41,14 @@ type (
 )
 
 func New(deps Deps) *Service {
-	return &Service{
+	s := &Service{
 		Nats: deps.Nats,
 		Log:  deps.Log,
 		DB:   deps.DB.Database("yummies"),
 	}
+
+	s.Nats.Subscribe("v1_tested", s.OnTested)
+	return s
 }
 
 func (s *Service) Index(ctx context.Context, req *pb.HomeIndexRequest) (*pb.HomeIndexResponse, error) {
@@ -52,6 +59,17 @@ func (s *Service) Index(ctx context.Context, req *pb.HomeIndexRequest) (*pb.Home
 		return nil, fmt.Errorf("getting x-auth-email header: %w", err)
 	}
 
+	evt, err := proto.Marshal(&pb.V1_Tested{
+		Id:         uuid.New().String(),
+		OccurredOn: uint64(time.Now().UnixMilli()),
+		Msg:        "it works",
+	})
+
+	if err != nil {
+		s.Log.Panicf("marshaling event: %v", err)
+	}
+
+	s.Nats.Publish("v1_tested", evt)
 	wg := new(errgroup.Group)
 	var categories []string
 	wg.Go(func() error {
@@ -130,4 +148,8 @@ func (s *Service) Index(ctx context.Context, req *pb.HomeIndexRequest) (*pb.Home
 
 	s.Log.Printf("leaving yummies HomeService Index")
 	return res, nil
+}
+
+func (s *Service) OnTested(msg *nats.Msg) {
+	s.Log.Printf(loglevel.Info("test event: %v"), msg)
 }

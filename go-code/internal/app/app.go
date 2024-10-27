@@ -7,13 +7,12 @@ import (
 	"net"
 	"net/http"
 
-	"github.com/joseluis8906/yummies/go-code/pkg/pb"
-	"github.com/prometheus/client_golang/prometheus/promhttp"
-
 	"github.com/joseluis8906/yummies/go-code/internal/home"
-	loglevel "github.com/joseluis8906/yummies/go-code/internal/log"
 	"github.com/joseluis8906/yummies/go-code/internal/menu"
 
+	"github.com/joseluis8906/yummies/go-code/pkg/pb"
+
+	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"github.com/spf13/viper"
 	"go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc"
 	"go.opentelemetry.io/otel"
@@ -57,7 +56,7 @@ func NewGRPCServer(lc fx.Lifecycle, deps Deps) *grpc.Server {
 			go func() {
 				err := grpcServer.Serve(lis)
 				if err != nil {
-					deps.Log.Printf(loglevel.Error("starting grpc server: %v"), err)
+					deps.Log.Printf("starting grpc server: %v", err)
 				}
 			}()
 
@@ -81,7 +80,7 @@ func NewHTTPServer(lc fx.Lifecycle, deps Deps) *http.Server {
 	handler := http.NewServeMux()
 	handler.Handle("/metrics", promhttp.Handler())
 	srv := &http.Server{
-		Addr:    ":9090",
+		Addr:    deps.Config.GetString("http.addr"),
 		Handler: handler,
 	}
 

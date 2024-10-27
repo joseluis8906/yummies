@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package yummies;
+
+option go_package = "github.com/joseluis8906/yummies/go-code/pkg/pb";
+
+message V1{
+    message Tested {
+        string id = 1;
+        uint64 occurred_on = 2;
+        string msg = 3;
+    }
+}

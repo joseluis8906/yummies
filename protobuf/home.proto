@@ -5,7 +5,7 @@ package yummies;
 // import "google/protobuf/timestamp.proto";
 // import "google/protobuf/wrappers.proto";
 
-option go_package = "github.com/joseluis8906/yummies/go-code/delivery/pkg/pb";
+option go_package = "github.com/joseluis8906/yummies/go-code/pkg/pb";
 
 service HomeService {
     rpc Index(HomeIndexRequest) returns (HomeIndexResponse);
