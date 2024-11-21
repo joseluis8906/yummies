@@ -2,20 +2,15 @@ package menu
 
 import (
 	"context"
-	"fmt"
 	"log"
 
-	"github.com/joseluis8906/yummies/go-code/pkg/grpc"
 	"github.com/joseluis8906/yummies/go-code/pkg/pb"
 
 	"github.com/nats-io/nats.go"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
-	"go.opentelemetry.io/otel"
 	"go.uber.org/fx"
 )
-
-const authEmail string = "x-auth-email"
 
 type (
 	Deps struct {
@@ -42,23 +37,15 @@ func New(deps Deps) *Service {
 }
 
 func (s *Service) Index(ctx context.Context, req *pb.MenuIndexRequest) (*pb.MenuIndexResponse, error) {
-	ctx, span := otel.Tracer("").Start(ctx, "yummies.MenuService.Index")
-	defer span.End()
-
-	_, err := grpc.Header(ctx, authEmail)
-	if err != nil {
-		s.Log.Printf("getting x-auth-email: %q", err)
-		return nil, fmt.Errorf("getting x-auth-email header: %w", err)
-	}
-
 	cur, err := s.DB.Collection("menu").Find(ctx, bson.D{})
 	if err != nil {
+		s.Log.Printf("getting menu from db: %v", err)
 		return nil, err
 	}
 
 	var dbProducts []Product
-	err = cur.All(ctx, &dbProducts)
-	if err != nil {
+	if err := cur.All(ctx, &dbProducts); err != nil {
+		s.Log.Printf("marshaling products: %v", err)
 		return nil, err
 	}
 

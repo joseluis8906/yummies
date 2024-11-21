@@ -7,8 +7,8 @@ import (
 
 func TestLog_Write(t *testing.T) {
 	testCases := map[string]struct {
-		in   string
 		want error
+		in   string
 	}{
 		"with level": {
 			in:   "delivery 2024/02/19 21:47:03 src/delivery/internal/storemanager/grpc/server.go:52: INFO calling storemanager.RegistersAStore: hello!",
@@ -34,5 +34,4 @@ func TestLog_Write(t *testing.T) {
 			}
 		})
 	}
-
 }

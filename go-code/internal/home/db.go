@@ -22,9 +22,9 @@ type (
 	}
 
 	Money struct {
+		Currency string `bson:"currency"`
 		Amount   uint64 `bson:"amount"`
 		Decimals uint8  `bson:"decimals"`
-		Currency string `bson:"currency"`
 	}
 )
 

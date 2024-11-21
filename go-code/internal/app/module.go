@@ -18,7 +18,8 @@ var Module = fx.Provide(
 	log.New,
 	nats.New,
 	mongodb.New,
-	//services
+
+	// services
 	home.New,
 	menu.New,
 )
