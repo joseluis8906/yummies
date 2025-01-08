@@ -25,6 +25,20 @@ export default async function Home() {
     )
 }
 
+function toFloat(price: HomeMoney | undefined): number {
+    if (price == undefined) {
+        return 0.0
+    }
+    const divisor = 10 ** price.getDecimals()
+    return price.getAmount() / divisor
+}
+
+interface Props {
+    categories: Array<string> | undefined;
+    todaysSpecialOffer: HomeTodaysSpecialOffer | undefined;
+    popularNow: Array<HomePopularNow> | undefined;
+}
+
 function AppBar() {
     return (
         <div className="fixed top-0 left-0 w-full h-60 z-50">
@@ -71,20 +85,6 @@ function AppBar() {
             </div>
         </div>
     )
-}
-
-function toFloat(price: HomeMoney | undefined): number {
-    if (price == undefined) {
-        return 0.0
-    }
-    const divisor = 10 ** price.getDecimals()
-    return price.getAmount() / divisor
-}
-
-interface Props {
-    categories: Array<string> | undefined;
-    todaysSpecialOffer: HomeTodaysSpecialOffer | undefined;
-    popularNow: Array<HomePopularNow> | undefined;
 }
 
 function Content({ categories, todaysSpecialOffer, popularNow }: Props) {
