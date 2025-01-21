@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="24"
+   height="24"
+   viewBox="0 0 6.3499999 6.35"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   sodipodi:docname="restaurant.svg"
+   xml:space="preserve"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="px"
+     showguides="true"
+     inkscape:zoom="4.1666667"
+     inkscape:cx="26.64"
+     inkscape:cy="23.76"
+     inkscape:window-width="1920"
+     inkscape:window-height="1011"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" /><defs
+     id="defs1" /><g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"><g
+       style="fill:#f9f9f9;stroke:none"
+       id="g1"
+       transform="matrix(0.00661458,0,0,0.00661458,0.13229317,6.3499984)"><path
+         d="m 280,-80 v -366 q -51,-14 -85.5,-56 -34.5,-42 -34.5,-98 v -280 h 80 v 280 h 40 v -280 h 80 v 280 h 40 v -280 h 80 v 280 q 0,56 -34.5,98 -34.5,42 -85.5,56 v 366 z m 400,0 V -400 H 560 v -280 q 0,-83 58.5,-141.5 Q 677,-880 760,-880 v 800 z"
+         id="path1"
+         style="fill:#f9f9f9;stroke:none" /></g><rect
+       style="fill:none;stroke:none;stroke-width:0.25"
+       id="rect1"
+       width="6.3499999"
+       height="6.3499999"
+       x="2.2683714e-08"
+       y="2.2683714e-08" /></g></svg>

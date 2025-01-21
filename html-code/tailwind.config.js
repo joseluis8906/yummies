@@ -1,9 +1,14 @@
 /** @type {import('tailwindcss').Config} */
+const { fontFamily } = require('tailwindcss/defaultTheme');
 module.exports = {
     darkMode: 'media',
     content: ["./src/**/*.{html, js}"],
     theme: {
-        extend: {},
+        extend: {
+            fontFamily: {
+                sans: ['Roboto', ...fontFamily.sans],
+            },
+        },
     },
     plugins: [
         require("@catppuccin/tailwindcss")({
@@ -13,6 +18,7 @@ module.exports = {
             // which flavour of colours to use by default, in the `:root`
             defaultFlavour: "mocha",
         }),
+        require("@tailwindcss/typography"),
     ],
 }
 

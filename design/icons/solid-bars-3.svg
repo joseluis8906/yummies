@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="24"
+   height="24"
+   viewBox="0 0 6.3499999 6.35"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   sodipodi:docname="solid-bars-3.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="px"
+     showguides="true"
+     inkscape:zoom="4.1666667"
+     inkscape:cx="26.16"
+     inkscape:cy="23.76"
+     inkscape:window-width="1920"
+     inkscape:window-height="1011"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       fill-rule="evenodd"
+       d="M 0.79375017,1.5874999 A 0.1984375,0.1984375 0 0 1 0.99218767,1.3890624 H 5.3578123 a 0.1984375,0.1984375 0 0 1 0,0.396875 H 0.99218767 A 0.1984375,0.1984375 0 0 1 0.79375017,1.5874999 Z m 0,1.3890626 A 0.1984375,0.1984375 0 0 1 0.99218767,2.778125 H 5.3578123 a 0.1984375,0.1984375 0 0 1 0,0.396875 H 0.99218767 A 0.1984375,0.1984375 0 0 1 0.79375017,2.9765625 Z m 0,1.3890625 A 0.1984375,0.1984375 0 0 1 0.99218767,4.1671875 H 5.3578123 a 0.1984375,0.1984375 0 0 1 0,0.396875 H 0.99218767 A 0.1984375,0.1984375 0 0 1 0.79375017,4.365625 Z"
+       clip-rule="evenodd"
+       id="path1-2"
+       style="fill:#f9f9f9;stroke:none;stroke-width:0.264583" />
+    <rect
+       style="fill:none;stroke:none;stroke-width:0.25"
+       id="rect1"
+       width="6.3499999"
+       height="6.3499999"
+       x="2.2683714e-08"
+       y="2.2683718e-08" />
+  </g>
+</svg>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="24"
+   height="24"
+   viewBox="0 0 6.3499999 6.35"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   sodipodi:docname="solid-map-pin.svg"
+   xml:space="preserve"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="px"
+     showguides="true"
+     inkscape:zoom="4.1666667"
+     inkscape:cx="26.64"
+     inkscape:cy="23.76"
+     inkscape:window-width="1920"
+     inkscape:window-height="1011"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" /><defs
+     id="defs1" /><g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"><rect
+       style="fill:none;stroke-width:0.25;stroke:none"
+       id="rect1"
+       width="6.3499999"
+       height="6.3499999"
+       x="0"
+       y="0" /><path
+       fill-rule="evenodd"
+       d="m 3.0533075,5.814686 0.01852,0.010583 0.0074,0.00423 a 0.20108333,0.20108333 0 0 0 0.191294,0 l 0.0074,-0.00397 0.01879,-0.010848 a 4.491302,4.491302 0 0 0 0.30268,-0.1963158 5.1805416,5.1805416 0 0 0 0.709877,-0.6037792 c 0.51435,-0.5265208 1.048544,-1.3176249 1.048544,-2.335477 a 2.1828125,2.1828125 0 0 0 -4.36562503,0 c 0,1.0175875 0.53445803,1.8089562 1.04854403,2.335477 a 5.1805416,5.1805416 0 0 0 0.709612,0.6037792 4.491302,4.491302 0 0 0 0.302948,0.1963208 z m 0.121709,-2.341827 a 0.79375,0.79375 0 1 0 0,-1.5875 0.79375,0.79375 0 0 0 0,1.5875 z"
+       clip-rule="evenodd"
+       id="path1"
+       style="fill:#f9f9f9;stroke-width:0.264583" /></g></svg>

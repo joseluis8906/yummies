@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="24"
+   height="24"
+   viewBox="0 0 6.3500126 6.3500127"
+   version="1.1"
+   id="svg1"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1">
+    <color-profile
+       name="Compatible-with-Adobe-RGB-1998"
+       xlink:href="file:///app/share/color/icc/colord/AdobeRGB1998.icc"
+       id="color-profile3" />
+    <color-profile
+       name="Blue"
+       xlink:href="file:///app/share/color/icc/colord/Bluish.icc"
+       id="color-profile4" />
+  </defs>
+  <g
+     id="layer1">
+    <g
+       id="g7"
+       transform="matrix(1.8,0,0,1.8,-5.7657897,-2.5393446)">
+      <path
+         id="path1"
+         style="fill:none;stroke:#f9f9f9;stroke-width:0.264584;stroke-dasharray:none;stroke-opacity:1"
+         d="m 3.7257084,2.7278443 a 0.70938468,0.70938468 0 0 1 0.1586827,0.4471621 v 0 A 0.70938468,0.70938468 0 0 1 3.7272008,3.6203242" />
+      <path
+         id="path1-5"
+         style="fill:none;stroke:#f9f9f9;stroke-width:0.264584;stroke-dasharray:none;stroke-opacity:1"
+         d="m 4.2566772,2.4134669 a 1.3228583,1.3228583 0 0 1 0.2411875,0.7615395 v 0 A 1.3228583,1.3228583 0 0 1 4.2575554,3.9352969" />
+      <path
+         id="circle1"
+         style="fill:none;stroke:#f9f9f9;stroke-width:0.264584;stroke-dasharray:none;stroke-opacity:1"
+         d="M 4.7592755,2.1155672 A 1.9058646,1.9058646 0 0 1 5.080871,3.1750064 v 0 A 1.9058646,1.9058646 0 0 1 4.7601342,4.2331602" />
+      <path
+         id="circle2"
+         style="fill:none;stroke:#f9f9f9;stroke-width:0.264584;stroke-dasharray:none;stroke-opacity:1"
+         d="m 5.2303513,1.8371257 a 2.4524207,2.4524207 0 0 1 0.3970758,1.3378807 v 0 A 2.4524207,2.4524207 0 0 1 5.2310895,4.5117523" />
+      <path
+         id="circle3"
+         style="fill:none;stroke:#f9f9f9;stroke-width:0.264584;stroke-dasharray:none;stroke-opacity:1"
+         d="m 5.7120652,1.5666497 a 3.0039105,3.0039105 0 0 1 0.4668517,1.6083567 v 0 A 3.0039105,3.0039105 0 0 1 5.7125107,4.7826601" />
+    </g>
+  </g>
+</svg>

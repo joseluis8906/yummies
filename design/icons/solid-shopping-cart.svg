@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="24"
+   height="24"
+   viewBox="0 0 6.3499999 6.35"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   sodipodi:docname="solid-shopping-cart.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="px"
+     showguides="true"
+     inkscape:zoom="4.1666667"
+     inkscape:cx="26.16"
+     inkscape:cy="23.76"
+     inkscape:window-width="1920"
+     inkscape:window-height="1011"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       d="m 0.60974349,0.59531248 a 0.1984375,0.1984375 0 0 0 0,0.396875 h 0.366712 c 0.04498,0 0.08414,0.030162 0.09578,0.073554 l 0.676805,2.5378833 a 0.99271666,0.99271666 0 0 0 -0.742421,0.9604375 c 0,0.1095375 0.0889,0.1984375 0.198437,0.1984375 h 4.167188 a 0.1984375,0.1984375 0 0 0 0,-0.396875 H 1.4373595 A 0.5953125,0.5953125 0 0 1 1.9988055,3.96875 h 2.968096 A 0.1984375,0.1984375 0 0 0 5.1452305,3.8573604 15.969721,15.969721 0 0 0 5.9283975,1.9449521 0.1984375,0.1984375 0 0 0 5.7894915,1.6896292 16.1036,16.1036 0 0 0 1.5172645,1.1930062 l -0.06138,-0.22939372 a 0.49609375,0.49609375 0 0 0 -0.47942501,-0.3683 z M 1.0066185,5.3578125 a 0.39687501,0.39687501 0 1 1 0.79375,0 0.39687501,0.39687501 0 0 1 -0.79375,0 z m 3.373437,0 a 0.396875,0.396875 0 1 1 0.79375,0 0.396875,0.396875 0 0 1 -0.79375,0 z"
+       id="path1"
+       style="stroke-width:0.264583;fill:#f9f9f9" />
+    <rect
+       style="fill:none;stroke:none;stroke-width:0.25"
+       id="rect1"
+       width="6.3499999"
+       height="6.3499999"
+       x="2.2683716e-08"
+       y="2.2683718e-08" />
+  </g>
+</svg>
