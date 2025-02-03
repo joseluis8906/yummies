@@ -6,12 +6,23 @@ import icon from "@/components/icon"
 import text from "@/components/text"
 import input from "@/components/input"
 import spacing from "@/components/spacing"
+import product from "@/product/product"
 
 
 export default function Header() {
   const [filter, setFilter] = useState<string>();
-  useEffect(() => console.info(filter), [filter])
-  const search = (e: React.ChangeEvent<HTMLInputElement>): void => setFilter(e.target.value)
+
+  const search = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    if (e.target.value.length < 3) return
+    setFilter(e.target.value)
+  }
+
+  useEffect(() => {
+    const productGW = new product.Gateway()
+    productGW.search({ Name: filter } as product.Product)
+      .then(res => console.info(res))
+      .catch(err => console.error(err))
+  }, [filter])
 
   return (
     <layout.Header>

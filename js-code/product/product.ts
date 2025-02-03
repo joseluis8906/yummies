@@ -26,6 +26,10 @@ namespace product {
     public async categories(): Promise<string[]> {
       return http.client.request("product_categories", null)
     }
+
+    public async search(p: Product): Promise<Product[]> {
+      return http.client.request("product_search", [p])
+    }
   }
 }
 

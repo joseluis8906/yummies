@@ -23,7 +23,7 @@ export default function Home() {
       <Header />
       <Content
         categories={categories}
-        specialOffer={specialOffer?.[0]}
+        specialOffer={specialOffer}
         popularNow={popularNow}
       />
       <component.BottomBar />
